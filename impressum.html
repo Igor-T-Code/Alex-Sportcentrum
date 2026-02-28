@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Alex Sportcentrum Nürnberg</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .legal-page { padding-top: 100px; }
+    .legal-content { max-width: 720px; }
+    .legal-content h3 { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 1px; margin: 32px 0 12px; }
+    .legal-content p, .legal-content li { font-size: 0.95rem; color: var(--light-gray); line-height: 1.8; margin-bottom: 8px; }
+    .legal-content a { color: var(--red); }
+    .legal-content a:hover { text-decoration: underline; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.9rem; margin-bottom: 24px; transition: var(--transition); }
+    .back-link:hover { color: var(--white); }
+    .placeholder-hint { background: rgba(230, 57, 70, 0.1); border: 1px dashed var(--red); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; font-size: 0.85rem; color: var(--red); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Alex Sportcentrum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="logo-text" style="display:none;">ALEX<br>SPORTCENTRUM</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#kurse" class="nav-link">Kurse</a></li>
+        <li><a href="index.html#trainer" class="nav-link">Trainer</a></li>
+        <li><a href="index.html#preise" class="nav-link">Preise</a></li>
+        <li><a href="index.html#kontakt" class="nav-link nav-cta">Probetraining</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="section legal-page">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
+      <div class="legal-content">
+        <h2 style="font-family:var(--font-display); font-size:2.5rem; letter-spacing:2px; margin-bottom:32px;">Impressum</h2>
+
+        <h3>Angaben gemäß § 5 TMG</h3>
+        <p>
+          Alex-Sportcentrum GmbH<br>
+          Kohlenhofstr. 1<br>
+          90443 Nürnberg
+        </p>
+        <p>Geschäftsführer: Gohar Awdijan</p>
+
+        <h3>Kontakt</h3>
+        <p>
+          Telefon: <a href="tel:+499112427822">0911 / 242 78 22</a><br>
+          E-Mail: <a href="mailto:awdijan@t-online.de">awdijan@t-online.de</a>
+        </p>
+
+        <h3>Registereintrag</h3>
+        <p>Eingetragen im Handelsregister des Amtsgerichts Nürnberg.<br>Alex-Sportcentrum GmbH, eingetragen am 21.08.2009.</p>
+
+        <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+        <p>
+          Alexander Awdijan<br>
+          Kohlenhofstr. 1<br>
+          90443 Nürnberg
+        </p>
+
+        <h3>Streitschlichtung</h3>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+        <h3>Haftung für Inhalte</h3>
+        <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+
+        <h3>Haftung für Links</h3>
+        <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.</p>
+
+        <h3>Urheberrecht</h3>
+        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding:0;">
+        <p>&copy; 2026 Alex Sportcentrum. <a href="impressum.html" style="color:var(--gray);">Impressum</a> · <a href="datenschutz.html" style="color:var(--gray);">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

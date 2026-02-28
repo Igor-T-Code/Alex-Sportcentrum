@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie — Alex Sportcentrum Nürnberg</title>
+  <meta name="description" content="Eindrücke aus dem Alex Sportcentrum: Training, Studio, Kurse und Atmosphäre. Boxen, Kick- & Thaiboxen, Fitness auf 2000m² in Nürnberg.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Alex Sportcentrum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="logo-text" style="display:none;">ALEX<br>SPORTCENTRUM</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#kurse" class="nav-link">Kurse</a></li>
+        <li><a href="index.html#trainer" class="nav-link">Trainer</a></li>
+        <li><a href="index.html#preise" class="nav-link">Preise</a></li>
+        <li><a href="galerie.html" class="nav-link" style="color:var(--red);">Galerie</a></li>
+        <li><a href="index.html#kontakt" class="nav-link nav-cta">Probetraining</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="section galerie-page">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
+      <div class="section-header" style="text-align:left;">
+        <p class="section-tag">Einblicke</p>
+        <h2>Galerie</h2>
+        <p class="section-desc" style="margin:0;">Tägliche Eindrücke aus dem Training, Studio und unserer Community.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <a href="assets/gym/gallery-alexander.jpg" class="gallery-item gallery-wide" data-caption="Alexander Awdijan am Sandsack — GBU-Weltmeister in Aktion">
+          <img src="assets/gym/gallery-alexander.jpg" alt="Alexander Awdijan trainiert am Sandsack" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Alexander am Sandsack</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-gruppentraining.jpg" class="gallery-item" data-caption="Gruppentraining — volle Halle, volle Energie">
+          <img src="assets/gym/gallery-gruppentraining.jpg" alt="Gruppentraining im Alex Sportcentrum" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Gruppentraining</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-ring.jpg" class="gallery-item" data-caption="Im Ring — persönliches Training mit Alexander">
+          <img src="assets/gym/gallery-ring.jpg" alt="Training im Boxring" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Ring-Training</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-sparring.jpg" class="gallery-item gallery-wide" data-caption="Kick- & Thaiboxen Sparring">
+          <img src="assets/gym/gallery-sparring.jpg" alt="Kick- und Thaiboxen Sparring" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Sparring</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-kinder.jpg" class="gallery-item" data-caption="Kinder-Boxen — Disziplin und Spaß">
+          <img src="assets/gym/gallery-kinder.jpg" alt="Kinder-Boxtraining mit Alexander" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Kinder-Boxen</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-fitness.jpg" class="gallery-item" data-caption="Fitness-Training — Ganzkörper-Workout">
+          <img src="assets/gym/gallery-fitness.jpg" alt="Fitness-Training im Alex Sportcentrum" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Fitness-Training</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-handschuhe.jpg" class="gallery-item" data-caption="Equipment — Qualität von Adidas">
+          <img src="assets/gym/gallery-handschuhe.jpg" alt="Boxhandschuhe im Alex Sportcentrum" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Equipment</span>
+          </div>
+        </a>
+        <a href="assets/gym/gallery-studio.jpg" class="gallery-item" data-caption="2000m² Studio — Kraft- und Fitnessbereich">
+          <img src="assets/gym/gallery-studio.jpg" alt="Fitnessbereich im Alex Sportcentrum" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Unser Studio</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top:48px; text-align:center;">
+        <a href="index.html#kontakt" class="btn btn-primary">Probetraining buchen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Schließen">&times;</button>
+    <button class="lightbox-prev" aria-label="Vorheriges Bild">&#8249;</button>
+    <button class="lightbox-next" aria-label="Nächstes Bild">&#8250;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding:0;">
+        <p>&copy; 2026 Alex Sportcentrum. <a href="impressum.html" style="color:var(--gray);">Impressum</a> · <a href="datenschutz.html" style="color:var(--gray);">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const items = [...document.querySelectorAll('.gallery-item')];
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      const item = items[idx];
+      lightboxImg.src = item.href;
+      lightboxImg.alt = item.querySelector('img').alt;
+      lightboxCaption.textContent = item.dataset.caption || '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIdx = (currentIdx + dir + items.length) % items.length;
+      const item = items[currentIdx];
+      lightboxImg.src = item.href;
+      lightboxImg.alt = item.querySelector('img').alt;
+      lightboxCaption.textContent = item.dataset.caption || '';
+    }
+
+    items.forEach((item, i) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(i);
+      });
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => navigate(-1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => navigate(1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+</body>
+</html>

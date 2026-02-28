@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainingsplan — Alex Sportcentrum Nürnberg</title>
+  <meta name="description" content="Trainingsplan Alex Sportcentrum: Boxen, Kick- & Thaiboxen, Fitness-Boxen, Zirkeltraining, Faszien & Pilates. Kinder-Training Mo-Fr 17-18 Uhr.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .plan-page { padding-top: 100px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.9rem; margin-bottom: 24px; transition: var(--transition); }
+    .back-link:hover { color: var(--white); }
+    .plan-table-wrap { overflow-x: auto; margin-top: 48px; border-radius: var(--radius); border: 1px solid var(--dark-3); }
+    .plan-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    .plan-table th, .plan-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--dark-3); font-size: 0.88rem; }
+    .plan-table thead th { background: var(--red); color: var(--pure-white); font-family: var(--font-display); font-size: 1rem; letter-spacing: 2px; font-weight: 400; padding: 16px 12px; }
+    .plan-table thead th:first-child { background: var(--dark-2); color: var(--light-gray); font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+    .plan-table td { color: var(--light-gray); }
+    .plan-table td:first-child { text-align: left; font-weight: 600; white-space: nowrap; color: var(--white); font-size: 0.82rem; }
+    .plan-table tbody tr { transition: var(--transition); }
+    .plan-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+    .plan-table tbody tr:last-child td { border-bottom: none; }
+    .plan-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 4px; white-space: nowrap; }
+    .tag-boxen { background: rgba(230, 57, 70, 0.15); color: var(--red); }
+    .tag-kickboxen { background: rgba(212, 168, 67, 0.15); color: var(--gold); }
+    .tag-fitness-boxen { background: rgba(91, 143, 185, 0.15); color: #5b8fb9; }
+    .tag-zirkel { background: rgba(138, 138, 138, 0.12); color: #8a8a8a; }
+    .tag-pilates { background: rgba(176, 122, 171, 0.15); color: #b07aab; }
+    .tag-fitness { background: rgba(255, 255, 255, 0.06); color: var(--light-gray); }
+    .tag-kinder { background: rgba(64, 145, 108, 0.15); color: var(--green-light); }
+    .plan-empty { color: var(--dark-3); }
+
+    /* Mobile: Table to cards */
+    @media (max-width: 768px) {
+      .plan-page { padding-top: 80px; }
+      .plan-table-wrap { border: none; border-radius: 0; overflow: visible; margin-top: 32px; }
+      .plan-table { min-width: 0; }
+      .plan-table, .plan-table thead, .plan-table tbody, .plan-table tr, .plan-table th, .plan-table td { display: block; }
+      .plan-table thead { display: none; }
+      .plan-table tbody tr { margin-bottom: 12px; border-radius: var(--radius); border: 1px solid var(--dark-3); overflow: hidden; background: var(--dark); }
+      .plan-table th, .plan-table td { border: none; }
+      .plan-table td:first-child { background: var(--red); color: var(--pure-white); font-family: var(--font-display); font-size: 1rem; letter-spacing: 2px; padding: 10px 16px; text-align: left; white-space: normal; }
+      .plan-table td:not(:first-child) { text-align: left; padding: 8px 16px 8px 50px; position: relative; border-bottom: 1px solid var(--dark-3); }
+      .plan-table tbody tr td:last-child { border-bottom: none; }
+      .plan-table td:nth-child(2)::before { content: 'MO'; }
+      .plan-table td:nth-child(3)::before { content: 'DI'; }
+      .plan-table td:nth-child(4)::before { content: 'MI'; }
+      .plan-table td:nth-child(5)::before { content: 'DO'; }
+      .plan-table td:nth-child(6)::before { content: 'FR'; }
+      .plan-table td:nth-child(7)::before { content: 'SA'; }
+      .plan-table td:not(:first-child)::before { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; color: var(--gray); }
+      .plan-table td.plan-empty { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .plan-table td:not(:first-child) { padding-left: 44px; }
+      .plan-tag { font-size: 0.68rem; padding: 4px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Alex Sportcentrum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="logo-text" style="display:none;">ALEX<br>SPORTCENTRUM</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#kurse" class="nav-link">Kurse</a></li>
+        <li><a href="index.html#trainer" class="nav-link">Trainer</a></li>
+        <li><a href="index.html#preise" class="nav-link">Preise</a></li>
+        <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+        <li><a href="index.html#kontakt" class="nav-link nav-cta">Probetraining</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="section plan-page">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
+      <div class="section-header" style="text-align:left;">
+        <p class="section-tag">Wochenplan</p>
+        <h2>Trainingsplan</h2>
+        <p class="section-desc" style="margin:0;">Alle Kurse sind in deiner Mitgliedschaft enthalten. Komm einfach vorbei!</p>
+      </div>
+
+      <div class="plan-table-wrap">
+        <table class="plan-table">
+          <thead>
+            <tr>
+              <th>Uhrzeit</th>
+              <th>Montag</th>
+              <th>Dienstag</th>
+              <th>Mittwoch</th>
+              <th>Donnerstag</th>
+              <th>Freitag</th>
+              <th>Samstag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17:00 – 18:00</td>
+              <td><span class="plan-tag tag-kinder">Kinder-Boxen</span></td>
+              <td><span class="plan-tag tag-kinder">Kinder-Zirkel</span></td>
+              <td><span class="plan-tag tag-kinder">Kinder-Boxen</span></td>
+              <td><span class="plan-tag tag-kinder">Kinder-SV</span></td>
+              <td><span class="plan-tag tag-kinder">Kinder Kick-/Thai</span></td>
+              <td><span class="plan-tag tag-boxen" style="font-size:0.65rem;">16:00 Boxen</span></td>
+            </tr>
+            <tr>
+              <td>18:30 – 19:30</td>
+              <td><span class="plan-tag tag-boxen">Boxen</span></td>
+              <td><span class="plan-tag tag-zirkel">Zirkel</span> <span class="plan-tag tag-boxen">Boxen Fortg.</span></td>
+              <td><span class="plan-tag tag-boxen">Boxen</span></td>
+              <td><span class="plan-tag tag-zirkel">Zirkel</span> <span class="plan-tag tag-pilates">Faszien/Pilates</span></td>
+              <td><span class="plan-tag tag-kickboxen">Kick-/Thaiboxen</span></td>
+              <td class="plan-empty">—</td>
+            </tr>
+            <tr>
+              <td>20:00 – 21:00</td>
+              <td><span class="plan-tag tag-kickboxen">Kick-/Thaiboxen</span></td>
+              <td><span class="plan-tag tag-fitness-boxen">Fitness-Boxen</span></td>
+              <td><span class="plan-tag tag-kickboxen">Kick-/Thaiboxen</span></td>
+              <td><span class="plan-tag tag-fitness-boxen">Fitness-Boxen</span></td>
+              <td><span class="plan-tag tag-fitness-boxen">Fitness-Boxen</span></td>
+              <td class="plan-empty">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:40px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <span class="plan-tag tag-boxen">Boxen</span>
+        <span class="plan-tag tag-kickboxen">Kick- &amp; Thaiboxen</span>
+        <span class="plan-tag tag-fitness-boxen">Fitness-Boxen</span>
+        <span class="plan-tag tag-zirkel">Zirkeltraining</span>
+        <span class="plan-tag tag-pilates">Faszien &amp; Pilates</span>
+        <span class="plan-tag tag-kinder">Kinder — 50€/Mo</span>
+      </div>
+
+      <p style="text-align:center; margin-top:16px; font-size:0.85rem; color:var(--gray);">Alle Kurse inklusive bei jeder Mitgliedschaft. Kinder-Training separat buchbar. Personal Training auf Anfrage.</p>
+
+      <div style="margin-top:48px; text-align:center;">
+        <a href="index.html#kontakt" class="btn btn-primary">Probetraining buchen</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding:0;">
+        <p>&copy; 2026 Alex Sportcentrum. <a href="impressum.html" style="color:var(--gray);">Impressum</a> · <a href="datenschutz.html" style="color:var(--gray);">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Sportcentrum — Boxen, Kampfsport & Fitness in Nürnberg</title>
+  <meta name="description" content="Alex Sportcentrum Nürnberg: Boxen, Kick- & Thaiboxen, Fitness-Boxen & mehr. Trainiere mit Weltmeistern Alexander & Wanik Awdijan. Probetraining jetzt buchen!">
+  <meta property="og:title" content="Alex Sportcentrum — Wo Weltmeister geboren werden">
+  <meta property="og:description" content="Boxen, Kick- & Thaiboxen, Fitness-Boxen in Nürnberg. Trainiere mit Weltmeistern auf 2000m².">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alex-sportcentrum.de">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SVG Icon Sprite — Disziplin-Icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <!-- Boxen: Boxhandschuh -->
+    <symbol id="icon-boxen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8c0-2.2-1.8-4-4-4H9C6.8 4 5 5.8 5 8v4c0 2.2 1.8 4 4 4h1v3c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-3h0c2.2 0 4-1.8 4-4V8z"/>
+      <path d="M9 8v4M12 8v4"/>
+    </symbol>
+    <!-- Kick-/Thaiboxen: Bein/Kick -->
+    <symbol id="icon-kick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 20l2-6 4-2 3.5-5.5"/>
+      <circle cx="17" cy="5" r="2"/>
+      <path d="M12 12l5 2.5"/>
+      <path d="M8 14l-3 6"/>
+    </symbol>
+    <!-- Fitness-Boxen: Hantel + Faust -->
+    <symbol id="icon-fitness" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 7v10M18 7v10M2 9v6M22 9v6M6 12h12"/>
+      <rect x="4" y="8" width="4" height="8" rx="1"/>
+      <rect x="16" y="8" width="4" height="8" rx="1"/>
+    </symbol>
+    <!-- Zirkeltraining: Kreislauf/Pfeile -->
+    <symbol id="icon-zirkel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12a9 9 0 11-3-6.7"/>
+      <polyline points="21 3 21 9 15 9"/>
+    </symbol>
+    <!-- Faszien & Pilates: Yoga/Stretch -->
+    <symbol id="icon-pilates" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="5" r="2"/>
+      <path d="M8 21l4-9 4 9"/>
+      <path d="M6 12c2-1 4-2 6-2s4 1 6 2"/>
+    </symbol>
+    <!-- Kinder: kleiner Boxer -->
+    <symbol id="icon-kinder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="5" r="2.5"/>
+      <path d="M9 10h6l1 5h-8l1-5z"/>
+      <path d="M10 15v5M14 15v5"/>
+      <path d="M7 12l-2 3M17 12l2 3"/>
+    </symbol>
+  </svg>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Alex Sportcentrum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="logo-text" style="display:none;">ALEX<br>SPORTCENTRUM</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#kurse" class="nav-link">Kurse</a></li>
+        <li><a href="#trainer" class="nav-link">Trainer</a></li>
+        <li><a href="#preise" class="nav-link">Preise</a></li>
+        <li><a href="#story" class="nav-link">Story</a></li>
+        <li><a href="#bewertungen" class="nav-link">Bewertungen</a></li>
+        <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+        <li><a href="#kontakt" class="nav-link nav-cta">Probetraining</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Nürnbergs #1 Kampfsport-Gym</p>
+      <h1>Wo Weltmeister<br>geboren werden</h1>
+      <p class="hero-sub">Trainiere Boxen, Kick- & Thaiboxen, Fitness-Boxen und mehr mit Weltmeistern Alexander & Wanik Awdijan — auf 2000m² in Nürnberg.</p>
+      <div class="hero-buttons">
+        <a href="#kontakt" class="btn btn-primary">Probetraining buchen</a>
+        <a href="#kurse" class="btn btn-outline">Kurse entdecken</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">2000m²</span>
+          <span class="stat-label">Trainingsfläche</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">2×</span>
+          <span class="stat-label">Weltmeister</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Disziplinen</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4.9★</span>
+          <span class="stat-label">Google Rating</span>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Kinder Banner -->
+  <section class="kinder-banner">
+    <div class="container">
+      <div class="kinder-inner">
+        <span class="kinder-badge">NEU</span>
+        <div class="kinder-text">
+          <strong>Kinder-Training: Nur 50€/Monat — alles unbegrenzt!</strong>
+          <span>Von Boxen bis MMA, alles dabei. Mo bis Fr, 17–18 Uhr. Keine Zusatzkosten!</span>
+        </div>
+        <a href="#kontakt" class="btn btn-small">Kind anmelden</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kursplan Section -->
+  <section class="section kurse" id="kurse">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Ein Preis. Alles drin.</p>
+        <h2>Kursplan</h2>
+        <p class="section-desc">Alle Kurse in einer Mitgliedschaft. Trainiere was du willst, wann du willst.</p>
+      </div>
+
+      <div class="kursplan-wrap">
+        <table class="kursplan">
+          <thead>
+            <tr>
+              <th class="kp-time-head">Uhrzeit</th>
+              <th>Montag</th>
+              <th>Dienstag</th>
+              <th>Mittwoch</th>
+              <th>Donnerstag</th>
+              <th>Freitag</th>
+              <th>Samstag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 17:00 – 18:00 Kinder + Samstag Boxen -->
+            <tr>
+              <td class="kp-time">17:00 – 18:00</td>
+              <td>
+                <div class="kp-tile kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0">
+                  <strong>Kinder-Boxen</strong>
+                  <span class="kp-info">Technik &amp; Disziplin</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kinder" data-discipline="kinder-zirkel" role="button" tabindex="0">
+                  <strong>Kinder-Zirkel</strong>
+                  <span class="kp-info">Koordination &amp; Fitness</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0">
+                  <strong>Kinder-Boxen</strong>
+                  <span class="kp-info">Technik &amp; Disziplin</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kinder" data-discipline="kinder-sv" role="button" tabindex="0">
+                  <strong>Kinder-Selbstverteidigung</strong>
+                  <span class="kp-info">Sicherheit &amp; Reaktion</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kinder" data-discipline="kinder-kick" role="button" tabindex="0">
+                  <strong>Kinder Kick-/Thaiboxen</strong>
+                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-boxen kp-special-time" data-discipline="boxen" role="button" tabindex="0">
+                  <span class="kp-alt-time">16:00 – 17:00</span>
+                  <strong>Boxen</strong>
+                  <span class="kp-info">Technik &amp; Sparring</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+            </tr>
+            <!-- 18:30 – 19:30 -->
+            <tr>
+              <td class="kp-time">18:30 – 19:30</td>
+              <td>
+                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
+                  <strong>Boxen</strong>
+                  <span class="kp-info">Technik &amp; Pratzen</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td class="kp-cell-stacked">
+                <div class="kp-tile kp-zirkel" data-discipline="zirkel" role="button" tabindex="0">
+                  <strong>Zirkeltraining</strong>
+                  <span class="kp-trainer">Trainerin</span>
+                </div>
+                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
+                  <strong>Boxen Fortgeschr.</strong>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
+                  <strong>Boxen</strong>
+                  <span class="kp-info">Technik &amp; Pratzen</span>
+                  <span class="kp-trainer">Alexander</span>
+                </div>
+              </td>
+              <td class="kp-cell-stacked">
+                <div class="kp-tile kp-zirkel" data-discipline="zirkel" role="button" tabindex="0">
+                  <strong>Zirkeltraining</strong>
+                  <span class="kp-trainer">Trainerin</span>
+                </div>
+                <div class="kp-tile kp-pilates" data-discipline="pilates" role="button" tabindex="0">
+                  <strong>Faszien &amp; Pilates</strong>
+                  <span class="kp-trainer">Trainerin</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
+                  <strong>Kick- &amp; Thaiboxen</strong>
+                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td><div class="kp-tile kp-empty"></div></td>
+            </tr>
+            <!-- 20:00 – 21:00 -->
+            <tr>
+              <td class="kp-time">20:00 – 21:00</td>
+              <td>
+                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
+                  <strong>Kick-/Thaiboxen</strong>
+                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
+                  <strong>Fitness-Boxen</strong>
+                  <span class="kp-info">Ausdauer &amp; Kraft</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
+                  <strong>Kick-/Thaiboxen</strong>
+                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
+                  <strong>Fitness-Boxen</strong>
+                  <span class="kp-info">Ausdauer &amp; Kraft</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td>
+                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
+                  <strong>Fitness-Boxen</strong>
+                  <span class="kp-info">Ausdauer &amp; Kraft</span>
+                  <span class="kp-trainer">Wanik</span>
+                </div>
+              </td>
+              <td><div class="kp-tile kp-empty"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile: Tagesansicht -->
+      <div class="kursplan-days">
+        <div class="kp-day">
+          <div class="kp-day-head">Montag</div>
+          <div class="kp-day-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Boxen</strong><span class="kp-slot-info">Technik &amp; Disziplin · Alexander</span></div>
+          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Pratzen · Alexander</span></div>
+          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
+        </div>
+        <div class="kp-day">
+          <div class="kp-day-head">Dienstag</div>
+          <div class="kp-day-slot kp-kinder" data-discipline="kinder-zirkel" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Zirkel</strong><span class="kp-slot-info">Koordination &amp; Fitness · Alexander</span></div>
+          <div class="kp-day-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Zirkeltraining</strong><span class="kp-slot-info">Trainerin</span></div>
+          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen Fortgeschrittene</strong><span class="kp-slot-info">Alexander</span></div>
+          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
+        </div>
+        <div class="kp-day">
+          <div class="kp-day-head">Mittwoch</div>
+          <div class="kp-day-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Boxen</strong><span class="kp-slot-info">Technik &amp; Disziplin · Alexander</span></div>
+          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Pratzen · Alexander</span></div>
+          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
+        </div>
+        <div class="kp-day">
+          <div class="kp-day-head">Donnerstag</div>
+          <div class="kp-day-slot kp-kinder" data-discipline="kinder-sv" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Selbstverteidigung</strong><span class="kp-slot-info">Sicherheit &amp; Reaktion · Alexander</span></div>
+          <div class="kp-day-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Zirkeltraining</strong><span class="kp-slot-info">Trainerin</span></div>
+          <div class="kp-day-slot kp-pilates" data-discipline="pilates" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Faszien &amp; Pilates</strong><span class="kp-slot-info">Trainerin</span></div>
+          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
+        </div>
+        <div class="kp-day">
+          <div class="kp-day-head">Freitag</div>
+          <div class="kp-day-slot kp-kinder" data-discipline="kinder-kick" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Alexander</span></div>
+          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Kick- &amp; Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
+          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
+        </div>
+        <div class="kp-day">
+          <div class="kp-day-head">Samstag</div>
+          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">16:00</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Sparring · Alexander</span></div>
+        </div>
+      </div>
+
+      <p class="kursplan-hint">Alle Kurse inklusive bei jeder Mitgliedschaft. Kinder-Training 50 €/Mo separat buchbar. Personal Training auf Anfrage.</p>
+    </div>
+  </section>
+
+  <!-- Trainer Section -->
+  <section class="section trainer-section" id="trainer">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Deine Trainer</p>
+        <h2>Unser Trainerteam</h2>
+        <p class="section-desc">Trainiere mit Weltmeistern und erfahrenen Coaches — einmalig in Nürnberg.</p>
+      </div>
+
+      <div class="trainer-cards">
+        <!-- Alexander -->
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <img src="assets/trainer/alexander-1.png" alt="Alexander Awdijan">
+          </div>
+          <div class="trainer-info">
+            <span class="trainer-badge trainer-badge-gold">GBU Weltmeister</span>
+            <h3>Alexander Awdijan</h3>
+            <p class="trainer-role">Cheftrainer &amp; Gründer</p>
+            <div class="trainer-disziplinen">
+              <button class="disc-tag disc-boxen" data-discipline="boxen">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-boxen"/></svg>
+                <span>Boxen</span>
+              </button>
+              <button class="disc-tag disc-kinder" data-discipline="kinder-boxen">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-kinder"/></svg>
+                <span>Kinder-Training</span>
+              </button>
+            </div>
+            <p class="trainer-bio">GBU-Weltmeister im Supermittelgewicht 2007. Internationaler Deutscher Meister 2006. Vertrag bei Don King Promotions.</p>
+            <a href="#kontakt" class="trainer-private">Privatstunde buchen</a>
+          </div>
+        </div>
+
+        <!-- Wanik -->
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <img src="assets/trainer/wanik-1.png" alt="Wanik Awdijan">
+          </div>
+          <div class="trainer-info">
+            <span class="trainer-badge trainer-badge-red">IBF Junioren-Weltmeister</span>
+            <h3>Wanik Awdijan</h3>
+            <p class="trainer-role">Trainer, Profi-Boxer &amp; Sohn von Alexander</p>
+            <div class="trainer-disziplinen">
+              <button class="disc-tag disc-kick" data-discipline="kick">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-kick"/></svg>
+                <span>Kick- &amp; Thaiboxen</span>
+              </button>
+              <button class="disc-tag disc-fitness" data-discipline="fitness">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-fitness"/></svg>
+                <span>Fitness-Boxen</span>
+              </button>
+            </div>
+            <p class="trainer-bio">Von seinem Vater Alexander zum Champion trainiert. IBF Junioren-Weltmeister im Mittelgewicht 2018. Jüngster deutscher Profiboxer. Bilanz: 28–2 (11 KO).</p>
+            <a href="#kontakt" class="trainer-private">Privatstunde buchen</a>
+          </div>
+        </div>
+
+        <!-- Fitness-Trainerin -->
+        <div class="trainer-card">
+          <div class="trainer-img trainer-img-placeholder"></div>
+          <div class="trainer-info">
+            <span class="trainer-badge">Trainerin</span>
+            <h3>Fitness-Trainerin</h3>
+            <p class="trainer-role">Zirkeltraining, Faszien &amp; Pilates</p>
+            <div class="trainer-disziplinen">
+              <button class="disc-tag disc-zirkel" data-discipline="zirkel">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-zirkel"/></svg>
+                <span>Zirkeltraining</span>
+              </button>
+              <button class="disc-tag disc-pilates" data-discipline="pilates">
+                <svg class="disc-icon" width="18" height="18"><use href="#icon-pilates"/></svg>
+                <span>Faszien &amp; Pilates</span>
+              </button>
+            </div>
+            <p class="trainer-bio">Zertifizierte Trainerin für funktionelles Training, Pilates und Faszienarbeit. Ausgleich und Prävention.</p>
+            <a href="#kontakt" class="trainer-private">Privatstunde buchen</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="trainer-hint">Alle Trainer bieten auch 1:1 Privatstunden an — auf Anfrage. Einmalig in Nürnberg: Lerne direkt von Weltmeistern.</p>
+    </div>
+  </section>
+
+  <!-- Preise Section -->
+  <section class="section preise" id="preise">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Flexible Preise</p>
+        <h2>Unsere Preise</h2>
+        <p class="section-desc">Vom Tagespass bis zum Familienvertrag — faire Tarife für alle.</p>
+      </div>
+
+      <!-- 4 Vertragskarten -->
+      <div class="preis-cards">
+        <div class="preis-card">
+          <h3>1 Monat</h3>
+          <p class="preis-label">Flexibel</p>
+          <div class="preis-amount">
+            <span class="preis-number">110</span>
+            <span class="preis-currency">€ / Mo</span>
+          </div>
+          <ul class="preis-features">
+            <li>Monatlich kündbar</li>
+            <li>Alle Kurse inklusive</li>
+            <li>Freies Training</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-outline">Anfragen</a>
+        </div>
+
+        <div class="preis-card">
+          <h3>3 Monate</h3>
+          <p class="preis-label">Starter</p>
+          <div class="preis-amount">
+            <span class="preis-number">90</span>
+            <span class="preis-currency">€ / Mo</span>
+          </div>
+          <ul class="preis-features">
+            <li>3 Monate Laufzeit</li>
+            <li>Alle Kurse inklusive</li>
+            <li>Freies Training</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-outline">Anfragen</a>
+        </div>
+
+        <div class="preis-card">
+          <h3>12 Monate</h3>
+          <p class="preis-label">Beliebt</p>
+          <div class="preis-amount">
+            <span class="preis-number">70</span>
+            <span class="preis-currency">€ / Mo</span>
+          </div>
+          <ul class="preis-features">
+            <li>12 Monate Laufzeit</li>
+            <li>Alle Kurse inklusive</li>
+            <li>Freies Training</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-outline">Anfragen</a>
+        </div>
+
+        <div class="preis-card preis-best">
+          <span class="best-badge">Beste Option</span>
+          <h3>24 Monate</h3>
+          <p class="preis-label">Bester Preis</p>
+          <div class="preis-amount">
+            <span class="preis-number">60</span>
+            <span class="preis-currency">€ / Mo</span>
+          </div>
+          <ul class="preis-features">
+            <li>24 Monate Laufzeit</li>
+            <li>Alle Kurse inklusive</li>
+            <li>Freies Training</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-primary">Anfragen</a>
+        </div>
+      </div>
+
+      <!-- Weitere Optionen Tabelle -->
+      <div class="preis-extras">
+        <h3>Weitere Optionen</h3>
+        <table class="preis-tabelle">
+          <tbody>
+            <tr>
+              <td>6-Monats Vertrag</td>
+              <td><strong>80 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Tagespass</td>
+              <td><strong>20 €</strong></td>
+            </tr>
+            <tr>
+              <td>Zehnerkarte</td>
+              <td><strong>120 €</strong></td>
+            </tr>
+            <tr>
+              <td>Kinder-Training <small>Alle Disziplinen, Mo–Fr</small></td>
+              <td><strong>50 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Partnervertrag <small>24 Monate Laufzeit</small></td>
+              <td><strong>110 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Familienvertrag <small>3 Personen / 24 Mo</small></td>
+              <td><strong>165 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Jede weitere Person</td>
+              <td><strong>+55 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Getränke-Flatrate</td>
+              <td><strong>15 € / Monat</strong></td>
+            </tr>
+            <tr>
+              <td>Getränke-Flatrate <small>Familie/Partner</small></td>
+              <td><strong>20 € / Monat</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="preis-note">
+        <p>Bei jedem Vertrag oder jeder Zehnerkarte fällt eine einmalige Aufnahmegebühr an. Personaltraining auf Anfrage.</p>
+      </div>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="#kontakt" class="btn btn-primary">Jetzt Mitglied werden</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section story" id="story">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Unsere Geschichte</p>
+        <h2>Von Familie für Familien</h2>
+        <p class="section-desc">Ein Vater trainiert seinen Sohn vom Kind zum Weltmeister — und gibt diese Erfahrung jetzt an jede Familie weiter.</p>
+      </div>
+
+      <!-- Leitspruch -->
+      <div class="story-motto">
+        <blockquote>"Ich habe meinen Sohn vom Kind zum Weltmeister trainiert. Diesen Weg gebe ich jetzt an jeden weiter, der bereit ist."</blockquote>
+        <cite>— Alexander Awdijan, Vater, Weltmeister &amp; Cheftrainer</cite>
+      </div>
+
+      <div class="story-content">
+        <div class="story-photos">
+          <div class="story-photo story-photo-large">
+            <img src="assets/gym/494729176_1233545928774273_9210835138481296295_n.jpg" alt="Wanik Awdijan im Kampf">
+            <span class="story-photo-caption">Wanik Awdijan im Profikampf</span>
+          </div>
+          <div class="story-photo-row">
+            <div class="story-photo">
+              <img src="assets/gym/292546587_392244259556039_2441494113039056492_n.jpg" alt="Alexander Awdijan mit Weltmeister-Gürtel">
+              <span class="story-photo-caption">Alexander — Weltmeister 2007</span>
+            </div>
+            <div class="story-photo">
+              <img src="assets/banner/gym-aussen.jpg" alt="Alex Sportcentrum Nürnberg">
+              <span class="story-photo-caption">Das Sportcentrum heute</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1990er</div>
+            <div class="timeline-content">
+              <h4>Ein Vater, ein Traum</h4>
+              <p>Alexander Awdijan beginnt seine Boxkarriere in Nürnberg. Schon früh ist klar: Dieser Sport ist mehr als Technik — er ist Erziehung, Charakter und Lebensschule.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2006</div>
+            <div class="timeline-content">
+              <h4>Deutscher Meister</h4>
+              <p>Alexander wird Internationaler Deutscher Meister im Supermittelgewicht. Parallel beginnt er, seinen Sohn Wanik zu trainieren — vom Kindesalter an, mit der gleichen Disziplin.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2007</div>
+            <div class="timeline-content">
+              <h4>Weltmeister!</h4>
+              <p>Alexander gewinnt den GBU-Weltmeistertitel und erhält einen Vertrag bei Don King. Nürnberg hat einen Weltmeister — und Wanik einen Vater, der ihm zeigt, was möglich ist.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-content">
+              <h4>Ein Gym für Familien</h4>
+              <p>Alexander eröffnet das Alex Sportcentrum: 2000 m², Boxring, Geräte, Sauna. Kein elitärer Club — ein Ort, an dem er seine Erfahrung an Kinder, Familien und Wettkämpfer weitergibt.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-content">
+              <h4>Vom Kind zum Weltmeister</h4>
+              <p>Wanik wird IBF Junioren-Weltmeister im Mittelgewicht — trainiert von seinem Vater Alexander. Jüngster deutscher Profiboxer, jetzt Weltmeister. Vom Kind bis zum Champion, in einer Familie.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Heute</div>
+            <div class="timeline-content">
+              <h4>Dein Weg beginnt hier</h4>
+              <p>Vater und Sohn trainieren dich persönlich — ob du 6 bist oder 60, Anfänger oder Wettkämpfer. Was Alexander seinem Sohn beigebracht hat, gibt er jetzt an dich weiter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bewertungen Section -->
+  <section class="section bewertungen" id="bewertungen">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Das sagen unsere Mitglieder</p>
+        <h2>4.9 ★ auf Google</h2>
+        <p class="section-desc">Über 200 Bewertungen — und fast alle 5 Sterne.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Bestes Gym in Nürnberg! Die Trainer sind mega professionell und die Atmosphäre ist wie eine Familie. Hier wird jeder willkommen geheißen."</p>
+          <div class="review-author">
+            <strong>Markus K.</strong>
+            <span>Mitglied seit 2019</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Mein Sohn trainiert hier seit einem Jahr und ich sehe riesige Fortschritte — nicht nur sportlich, sondern auch in Disziplin und Selbstbewusstsein."</p>
+          <div class="review-author">
+            <strong>Sandra M.</strong>
+            <span>Mutter eines Mitglieds</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Wo sonst trainiert man mit echten Weltmeistern? Alexander und Wanik sind unglaublich bodenständig und geben alles für ihre Schüler."</p>
+          <div class="review-author">
+            <strong>Tobias R.</strong>
+            <span>Mitglied seit 2021</span>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-cta">
+        <a href="https://www.google.com/maps/place/Alex+Sportcentrum+GmbH/@49.4434333,11.0677513,17z" target="_blank" rel="noopener" class="btn btn-outline">Alle Bewertungen auf Google &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie Teaser -->
+  <section class="section galerie-teaser" id="galerie">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Einblicke</p>
+        <h2>So trainieren wir</h2>
+        <p class="section-desc">Tägliche Eindrücke aus dem Training, unserem Studio und der Community.</p>
+      </div>
+      <div class="gallery-scroll">
+        <div class="gallery-scroll-track">
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-alexander.jpg" alt="Alexander am Sandsack" loading="lazy">
+          </a>
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-gruppentraining.jpg" alt="Gruppentraining" loading="lazy">
+          </a>
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-ring.jpg" alt="Ring-Training" loading="lazy">
+          </a>
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-kinder.jpg" alt="Kinder-Boxen" loading="lazy">
+          </a>
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-sparring.jpg" alt="Sparring" loading="lazy">
+          </a>
+          <a href="galerie.html" class="gallery-scroll-item">
+            <img src="assets/gym/gallery-studio.jpg" alt="Studio" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:32px;">
+        <a href="galerie.html" class="btn btn-outline">Alle Fotos ansehen &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Kontakt Section -->
+  <section class="section kontakt" id="kontakt">
+    <div class="container">
+      <div class="kontakt-grid">
+        <div class="kontakt-text">
+          <p class="section-tag">Bereit?</p>
+          <h2>Dein kostenloses Probetraining</h2>
+          <p>Komm vorbei und überzeug dich selbst. Egal ob Boxen, Kick- & Thaiboxen oder Fitness — dein erstes Training ist gratis. Keine Verpflichtung, kein Risiko.</p>
+          <div class="kontakt-info">
+            <div class="kontakt-item">
+              <span class="kontakt-icon">📍</span>
+              <div>
+                <strong>Adresse</strong>
+                <p><a href="https://www.google.com/maps/place/Alex+Sportcentrum+GmbH/@49.4434333,11.0677513,17z" target="_blank" rel="noopener">Alex Sportcentrum GmbH<br>Kohlenhofstr. 1<br>90443 Nürnberg</a></p>
+              </div>
+            </div>
+            <div class="kontakt-item">
+              <span class="kontakt-icon">📞</span>
+              <div>
+                <strong>Telefon</strong>
+                <p><a href="tel:+499112427822">0911 / 242 78 22</a></p>
+              </div>
+            </div>
+            <div class="kontakt-item">
+              <span class="kontakt-icon">✉️</span>
+              <div>
+                <strong>E-Mail</strong>
+                <p><a href="mailto:awdijan@t-online.de">awdijan@t-online.de</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kontakt-form-wrap">
+          <form class="cta-form" id="kontakt-form">
+            <div class="form-group">
+              <label for="name">Dein Name</label>
+              <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" placeholder="max@beispiel.de" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="0171 1234567">
+            </div>
+            <div class="form-group">
+              <label for="interest">Interesse</label>
+              <select id="interest" name="interest" required>
+                <option value="">Bitte wählen...</option>
+                <option value="probetraining">Probetraining (allgemein)</option>
+                <option value="boxen">Boxen</option>
+                <option value="kick-thaiboxen">Kick- & Thaiboxen</option>
+                <option value="fitness-boxen">Fitness-Boxen</option>
+                <option value="zirkeltraining">Zirkeltraining</option>
+                <option value="pilates">Faszien & Pilates</option>
+                <option value="kinder">Kinder-Training</option>
+                <option value="privattraining">Personal Training</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Probetraining anfragen</button>
+            <p class="form-note">Wir melden uns innerhalb von 24 Stunden bei dir.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Alex Sportcentrum</h4>
+          <p>Nürnbergs Kampfsport-Gym Nr. 1 — gegründet von Weltmeister Alexander Awdijan.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/alexsportcentrum" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@alexsportcentrum" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13a8.28 8.28 0 005.58 2.16v-3.44a4.85 4.85 0 01-3.59-1.44V6.69h3.59z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Öffnungszeiten</h4>
+          <ul class="footer-hours">
+            <li><span>Mo – Fr</span><span>09:00 – 13:00 &amp; 16:00 – 22:00</span></li>
+            <li><span>Sa</span><span>10:00 – 18:00</span></li>
+            <li><span>So &amp; Feiertag</span><span>geschlossen</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#kurse">Kurse</a></li>
+            <li><a href="trainingsplan.html">Trainingsplan</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Alex Sportcentrum. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-cta-bar" id="mobile-cta">
+    <a href="#kontakt" class="btn btn-primary btn-full">Probetraining buchen</a>
+  </div>
+
+  <!-- Discipline Modal -->
+  <div class="modal-backdrop" id="discipline-modal" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <button class="modal-close" aria-label="Schließen">&times;</button>
+      <div class="modal-header">
+        <div class="modal-icon" id="modal-icon"></div>
+        <h3 id="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-trainer" id="modal-trainer"></div>
+        <div class="modal-schedule">
+          <h4>Trainingszeiten</h4>
+          <div class="modal-times" id="modal-times"></div>
+        </div>
+        <a href="#kontakt" class="btn btn-primary modal-cta" id="modal-cta">Probetraining buchen</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
