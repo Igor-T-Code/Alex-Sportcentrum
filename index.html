@@ -71,6 +71,7 @@
         <li><a href="#story" class="nav-link">Story</a></li>
         <li><a href="#bewertungen" class="nav-link">Bewertungen</a></li>
         <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+        <li><a href="login.html" class="nav-link">Anmelden</a></li>
         <li><a href="#kontakt" class="nav-link nav-cta">Probetraining</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menü öffnen">
@@ -94,19 +95,19 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">2000m²</span>
+          <span class="stat-number" data-count="2000" data-suffix="m²">0m²</span>
           <span class="stat-label">Trainingsfläche</span>
         </div>
         <div class="stat">
-          <span class="stat-number">2×</span>
+          <span class="stat-number" data-count="2" data-suffix="×">0×</span>
           <span class="stat-label">Weltmeister</span>
         </div>
         <div class="stat">
-          <span class="stat-number">6</span>
+          <span class="stat-number" data-count="6" data-suffix="">0</span>
           <span class="stat-label">Disziplinen</span>
         </div>
         <div class="stat">
-          <span class="stat-number">4.9★</span>
+          <span class="stat-number" data-count="4.9" data-suffix="★" data-decimal="true">0★</span>
           <span class="stat-label">Google Rating</span>
         </div>
       </div>
@@ -139,200 +140,166 @@
         <p class="section-desc">Alle Kurse in einer Mitgliedschaft. Trainiere was du willst, wann du willst.</p>
       </div>
 
-      <div class="kursplan-wrap">
-        <table class="kursplan">
-          <thead>
-            <tr>
-              <th class="kp-time-head">Uhrzeit</th>
-              <th>Montag</th>
-              <th>Dienstag</th>
-              <th>Mittwoch</th>
-              <th>Donnerstag</th>
-              <th>Freitag</th>
-              <th>Samstag</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 17:00 – 18:00 Kinder + Samstag Boxen -->
-            <tr>
-              <td class="kp-time">17:00 – 18:00</td>
-              <td>
-                <div class="kp-tile kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0">
-                  <strong>Kinder-Boxen</strong>
-                  <span class="kp-info">Technik &amp; Disziplin</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kinder" data-discipline="kinder-zirkel" role="button" tabindex="0">
-                  <strong>Kinder-Zirkel</strong>
-                  <span class="kp-info">Koordination &amp; Fitness</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0">
-                  <strong>Kinder-Boxen</strong>
-                  <span class="kp-info">Technik &amp; Disziplin</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kinder" data-discipline="kinder-sv" role="button" tabindex="0">
-                  <strong>Kinder-Selbstverteidigung</strong>
-                  <span class="kp-info">Sicherheit &amp; Reaktion</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kinder" data-discipline="kinder-kick" role="button" tabindex="0">
-                  <strong>Kinder Kick-/Thaiboxen</strong>
-                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-boxen kp-special-time" data-discipline="boxen" role="button" tabindex="0">
-                  <span class="kp-alt-time">16:00 – 17:00</span>
-                  <strong>Boxen</strong>
-                  <span class="kp-info">Technik &amp; Sparring</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-            </tr>
-            <!-- 18:30 – 19:30 -->
-            <tr>
-              <td class="kp-time">18:30 – 19:30</td>
-              <td>
-                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
-                  <strong>Boxen</strong>
-                  <span class="kp-info">Technik &amp; Pratzen</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td class="kp-cell-stacked">
-                <div class="kp-tile kp-zirkel" data-discipline="zirkel" role="button" tabindex="0">
-                  <strong>Zirkeltraining</strong>
-                  <span class="kp-trainer">Trainerin</span>
-                </div>
-                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
-                  <strong>Boxen Fortgeschr.</strong>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-boxen" data-discipline="boxen" role="button" tabindex="0">
-                  <strong>Boxen</strong>
-                  <span class="kp-info">Technik &amp; Pratzen</span>
-                  <span class="kp-trainer">Alexander</span>
-                </div>
-              </td>
-              <td class="kp-cell-stacked">
-                <div class="kp-tile kp-zirkel" data-discipline="zirkel" role="button" tabindex="0">
-                  <strong>Zirkeltraining</strong>
-                  <span class="kp-trainer">Trainerin</span>
-                </div>
-                <div class="kp-tile kp-pilates" data-discipline="pilates" role="button" tabindex="0">
-                  <strong>Faszien &amp; Pilates</strong>
-                  <span class="kp-trainer">Trainerin</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
-                  <strong>Kick- &amp; Thaiboxen</strong>
-                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td><div class="kp-tile kp-empty"></div></td>
-            </tr>
-            <!-- 20:00 – 21:00 -->
-            <tr>
-              <td class="kp-time">20:00 – 21:00</td>
-              <td>
-                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
-                  <strong>Kick-/Thaiboxen</strong>
-                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
-                  <strong>Fitness-Boxen</strong>
-                  <span class="kp-info">Ausdauer &amp; Kraft</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-kick" data-discipline="kick" role="button" tabindex="0">
-                  <strong>Kick-/Thaiboxen</strong>
-                  <span class="kp-info">Schlag- &amp; Tritttechnik</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
-                  <strong>Fitness-Boxen</strong>
-                  <span class="kp-info">Ausdauer &amp; Kraft</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td>
-                <div class="kp-tile kp-fitness" data-discipline="fitness" role="button" tabindex="0">
-                  <strong>Fitness-Boxen</strong>
-                  <span class="kp-info">Ausdauer &amp; Kraft</span>
-                  <span class="kp-trainer">Wanik</span>
-                </div>
-              </td>
-              <td><div class="kp-tile kp-empty"></div></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Disziplin-Übersicht: Karten mit Icons -->
+      <div class="disc-grid">
+        <div class="disc-card disc-boxen" data-discipline="boxen" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(230,57,70,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-boxen"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Boxen</h3>
+            <p class="disc-desc">Technik, Pratzen &amp; Sparring</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Alexander</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Mo 18:30</span><span>Mi 18:30</span><span>Di 18:30*</span><span>Sa 16:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-card disc-kick" data-discipline="kick" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(212,168,67,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-kick"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Kick- &amp; Thaiboxen</h3>
+            <p class="disc-desc">Schlag- &amp; Tritttechnik</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Wanik</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Mo 20:00</span><span>Mi 20:00</span><span>Fr 18:30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-card disc-fitness" data-discipline="fitness" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(91,143,185,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5b8fb9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-fitness"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Fitness-Boxen</h3>
+            <p class="disc-desc">Ausdauer &amp; Kraft</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Wanik</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Di 20:00</span><span>Do 20:00</span><span>Fr 20:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-card disc-zirkel" data-discipline="zirkel" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(138,138,138,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-zirkel"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Zirkeltraining</h3>
+            <p class="disc-desc">Ganzkörper-Workout im Zirkel</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Trainerin</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Di 18:30</span><span>Do 18:30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-card disc-pilates" data-discipline="pilates" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(176,122,171,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b07aab" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-pilates"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Faszien &amp; Pilates</h3>
+            <p class="disc-desc">Mobilität &amp; Regeneration</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Trainerin</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 1× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Do 18:30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="disc-card disc-kinder" data-discipline="kinder-boxen" role="button" tabindex="0">
+          <div class="disc-icon-wrap" style="background:rgba(64,145,108,0.12);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-kinder"/></svg>
+          </div>
+          <div class="disc-card-body">
+            <h3>Kinder-Training</h3>
+            <p class="disc-desc">Boxen, Zirkel, Selbstverteidigung</p>
+            <div class="disc-meta">
+              <span class="disc-trainer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.8 21a7 7 0 0112.4 0"/></svg> Alexander</span>
+              <span class="disc-times"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5× / Woche</span>
+            </div>
+            <div class="disc-schedule">
+              <span>Mo–Fr 17:00</span>
+            </div>
+            <span class="disc-badge">50 €/Mo</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Mobile: Tagesansicht -->
-      <div class="kursplan-days">
-        <div class="kp-day">
-          <div class="kp-day-head">Montag</div>
-          <div class="kp-day-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Boxen</strong><span class="kp-slot-info">Technik &amp; Disziplin · Alexander</span></div>
-          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Pratzen · Alexander</span></div>
-          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
-        </div>
-        <div class="kp-day">
-          <div class="kp-day-head">Dienstag</div>
-          <div class="kp-day-slot kp-kinder" data-discipline="kinder-zirkel" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Zirkel</strong><span class="kp-slot-info">Koordination &amp; Fitness · Alexander</span></div>
-          <div class="kp-day-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Zirkeltraining</strong><span class="kp-slot-info">Trainerin</span></div>
-          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen Fortgeschrittene</strong><span class="kp-slot-info">Alexander</span></div>
-          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
-        </div>
-        <div class="kp-day">
-          <div class="kp-day-head">Mittwoch</div>
-          <div class="kp-day-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Boxen</strong><span class="kp-slot-info">Technik &amp; Disziplin · Alexander</span></div>
-          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Pratzen · Alexander</span></div>
-          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
-        </div>
-        <div class="kp-day">
-          <div class="kp-day-head">Donnerstag</div>
-          <div class="kp-day-slot kp-kinder" data-discipline="kinder-sv" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder-Selbstverteidigung</strong><span class="kp-slot-info">Sicherheit &amp; Reaktion · Alexander</span></div>
-          <div class="kp-day-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Zirkeltraining</strong><span class="kp-slot-info">Trainerin</span></div>
-          <div class="kp-day-slot kp-pilates" data-discipline="pilates" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Faszien &amp; Pilates</strong><span class="kp-slot-info">Trainerin</span></div>
-          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
-        </div>
-        <div class="kp-day">
-          <div class="kp-day-head">Freitag</div>
-          <div class="kp-day-slot kp-kinder" data-discipline="kinder-kick" role="button" tabindex="0"><span class="kp-slot-time">17:00</span><strong>Kinder Kick-/Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Alexander</span></div>
-          <div class="kp-day-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="kp-slot-time">18:30</span><strong>Kick- &amp; Thaiboxen</strong><span class="kp-slot-info">Schlag- &amp; Tritttechnik · Wanik</span></div>
-          <div class="kp-day-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="kp-slot-time">20:00</span><strong>Fitness-Boxen</strong><span class="kp-slot-info">Ausdauer &amp; Kraft · Wanik</span></div>
-        </div>
-        <div class="kp-day">
-          <div class="kp-day-head">Samstag</div>
-          <div class="kp-day-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="kp-slot-time">16:00</span><strong>Boxen</strong><span class="kp-slot-info">Technik &amp; Sparring · Alexander</span></div>
+      <!-- Kompakter Wochenplan darunter -->
+      <div class="week-plan">
+        <h3 class="week-plan-title">Wochenplan im Detail</h3>
+        <div class="week-plan-grid">
+          <div class="week-day">
+            <div class="week-day-name">Mo</div>
+            <div class="week-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="ws-time">17:00</span><span class="ws-name">Kinder-Boxen</span></div>
+            <div class="week-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Boxen</span></div>
+            <div class="week-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="ws-time">20:00</span><span class="ws-name">Kick-/Thaiboxen</span></div>
+          </div>
+          <div class="week-day">
+            <div class="week-day-name">Di</div>
+            <div class="week-slot kp-kinder" data-discipline="kinder-zirkel" role="button" tabindex="0"><span class="ws-time">17:00</span><span class="ws-name">Kinder-Zirkel</span></div>
+            <div class="week-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Zirkeltraining</span></div>
+            <div class="week-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Boxen Fortg.</span></div>
+            <div class="week-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="ws-time">20:00</span><span class="ws-name">Fitness-Boxen</span></div>
+          </div>
+          <div class="week-day">
+            <div class="week-day-name">Mi</div>
+            <div class="week-slot kp-kinder" data-discipline="kinder-boxen" role="button" tabindex="0"><span class="ws-time">17:00</span><span class="ws-name">Kinder-Boxen</span></div>
+            <div class="week-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Boxen</span></div>
+            <div class="week-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="ws-time">20:00</span><span class="ws-name">Kick-/Thaiboxen</span></div>
+          </div>
+          <div class="week-day">
+            <div class="week-day-name">Do</div>
+            <div class="week-slot kp-kinder" data-discipline="kinder-sv" role="button" tabindex="0"><span class="ws-time">17:00</span><span class="ws-name">Kinder-SV</span></div>
+            <div class="week-slot kp-zirkel" data-discipline="zirkel" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Zirkeltraining</span></div>
+            <div class="week-slot kp-pilates" data-discipline="pilates" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Faszien &amp; Pilates</span></div>
+            <div class="week-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="ws-time">20:00</span><span class="ws-name">Fitness-Boxen</span></div>
+          </div>
+          <div class="week-day">
+            <div class="week-day-name">Fr</div>
+            <div class="week-slot kp-kinder" data-discipline="kinder-kick" role="button" tabindex="0"><span class="ws-time">17:00</span><span class="ws-name">Kinder-Kickboxen</span></div>
+            <div class="week-slot kp-kick" data-discipline="kick" role="button" tabindex="0"><span class="ws-time">18:30</span><span class="ws-name">Kick- &amp; Thaiboxen</span></div>
+            <div class="week-slot kp-fitness" data-discipline="fitness" role="button" tabindex="0"><span class="ws-time">20:00</span><span class="ws-name">Fitness-Boxen</span></div>
+          </div>
+          <div class="week-day">
+            <div class="week-day-name">Sa</div>
+            <div class="week-slot kp-boxen" data-discipline="boxen" role="button" tabindex="0"><span class="ws-time">16:00</span><span class="ws-name">Boxen</span></div>
+          </div>
         </div>
       </div>
 
       <p class="kursplan-hint">Alle Kurse inklusive bei jeder Mitgliedschaft. Kinder-Training 50 €/Mo separat buchbar. Personal Training auf Anfrage.</p>
     </div>
   </section>
+
+  <!-- Image Banner: Training Action -->
+  <div class="image-banner" style="background-image:url('assets/gym/gallery-gruppentraining.jpg');">
+    <div class="image-banner-overlay"></div>
+    <div class="image-banner-content">
+      <span class="image-banner-text">Trainiere mit Weltmeistern</span>
+    </div>
+  </div>
 
   <!-- Trainer Section -->
   <section class="section trainer-section" id="trainer">
@@ -418,6 +385,14 @@
       <p class="trainer-hint">Alle Trainer bieten auch 1:1 Privatstunden an — auf Anfrage. Einmalig in Nürnberg: Lerne direkt von Weltmeistern.</p>
     </div>
   </section>
+
+  <!-- Image Banner: Ring -->
+  <div class="image-banner" style="background-image:url('assets/gym/gallery-ring.jpg');">
+    <div class="image-banner-overlay"></div>
+    <div class="image-banner-content">
+      <span class="image-banner-text">2000m² für dein Training</span>
+    </div>
+  </div>
 
   <!-- Preise Section -->
   <section class="section preise" id="preise">
@@ -627,6 +602,14 @@
     </div>
   </section>
 
+  <!-- Image Banner: Alexander -->
+  <div class="image-banner" style="background-image:url('assets/gym/gallery-alexander.jpg');">
+    <div class="image-banner-overlay"></div>
+    <div class="image-banner-content">
+      <span class="image-banner-text">Vom Kind zum Weltmeister</span>
+    </div>
+  </div>
+
   <!-- Bewertungen Section -->
   <section class="section bewertungen" id="bewertungen">
     <div class="container">
@@ -635,34 +618,57 @@
         <h2>4.9 ★ auf Google</h2>
         <p class="section-desc">Über 200 Bewertungen — und fast alle 5 Sterne.</p>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Bestes Gym in Nürnberg! Die Trainer sind mega professionell und die Atmosphäre ist wie eine Familie. Hier wird jeder willkommen geheißen."</p>
-          <div class="review-author">
-            <strong>Markus K.</strong>
-            <span>Mitglied seit 2019</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Mein Sohn trainiert hier seit einem Jahr und ich sehe riesige Fortschritte — nicht nur sportlich, sondern auch in Disziplin und Selbstbewusstsein."</p>
-          <div class="review-author">
-            <strong>Sandra M.</strong>
-            <span>Mutter eines Mitglieds</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Wo sonst trainiert man mit echten Weltmeistern? Alexander und Wanik sind unglaublich bodenständig und geben alles für ihre Schüler."</p>
-          <div class="review-author">
-            <strong>Tobias R.</strong>
-            <span>Mitglied seit 2021</span>
+      <!-- Google Badge -->
+      <div class="google-badge">
+        <div class="google-badge-inner">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <div class="google-badge-info">
+            <div class="google-badge-rating">
+              <span class="google-badge-score">4.9</span>
+              <span class="google-badge-stars">★★★★★</span>
+            </div>
+            <span class="google-badge-count">200+ Bewertungen auf Google</span>
           </div>
         </div>
       </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar" style="background:var(--red);">MK</div>
+            <div class="review-meta">
+              <strong>Markus K.</strong>
+              <span>Mitglied seit 2019 &middot; Boxen</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Bestes Gym in Nürnberg! Die Trainer sind mega professionell und die Atmosphäre ist wie eine Familie. Hier wird jeder willkommen geheißen."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar" style="background:var(--green-light);">SM</div>
+            <div class="review-meta">
+              <strong>Sandra M.</strong>
+              <span>Mutter eines Mitglieds</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Mein Sohn trainiert hier seit einem Jahr und ich sehe riesige Fortschritte — nicht nur sportlich, sondern auch in Disziplin und Selbstbewusstsein."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar" style="background:var(--gold);">TR</div>
+            <div class="review-meta">
+              <strong>Tobias R.</strong>
+              <span>Mitglied seit 2021 &middot; Kick-/Thaiboxen</span>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Wo sonst trainiert man mit echten Weltmeistern? Alexander und Wanik sind unglaublich bodenständig und geben alles für ihre Schüler."</p>
+        </div>
+      </div>
       <div class="reviews-cta">
-        <a href="https://www.google.com/maps/place/Alex+Sportcentrum+GmbH/@49.4434333,11.0677513,17z" target="_blank" rel="noopener" class="btn btn-outline">Alle Bewertungen auf Google &rarr;</a>
+        <a href="https://www.google.com/maps/place/Alex+Sportcentrum+GmbH/@49.4434333,11.0677513,17z" target="_blank" rel="noopener" class="btn btn-outline">Alle 200+ Bewertungen auf Google lesen &rarr;</a>
       </div>
     </div>
   </section>
@@ -699,6 +705,143 @@
       </div>
       <div style="text-align:center; margin-top:32px;">
         <a href="galerie.html" class="btn btn-outline">Alle Fotos ansehen &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portal / Einstieg Section -->
+  <section class="section" id="portal">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Dein Bereich</p>
+        <h2>Mitglieder- & Admin-Portal</h2>
+        <p class="section-desc">Alles im Blick — ob als Mitglied dein Training oder als Admin das gesamte Studio.</p>
+      </div>
+
+      <div class="portal-grid">
+
+        <!-- Mitglieder-Portal -->
+        <div class="portal-card member">
+          <div class="portal-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Mitglieder-Bereich</h3>
+          <p>Dein persönliches Dashboard — Mitgliedschaft, Kurse, Privattraining und Bestellungen auf einen Blick.</p>
+
+          <ul class="portal-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Mitgliedschaft & Vertragsstatus einsehen
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Gebuchte Kurse & nächste Termine
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Privattraining-Stunden & Trainer
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Trainings-Statistik & Streak
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Shop-Bestellungen verfolgen
+            </li>
+          </ul>
+
+          <!-- Mini-Preview -->
+          <div class="portal-preview">
+            <div class="portal-preview-title">Beispiel: Max Mustermann</div>
+            <div class="portal-preview-row">
+              <span class="pp-label">Mitgliedschaft</span>
+              <span class="pp-value">12 Monate <span class="status-badge aktiv" style="font-size:0.65rem; padding:2px 8px; margin-left:4px;">Aktiv</span></span>
+            </div>
+            <div class="portal-preview-row">
+              <span class="pp-label">Nächster Kurs</span>
+              <span class="pp-value">Boxen — Di 09:00</span>
+            </div>
+            <div class="portal-preview-row">
+              <span class="pp-label">Privattraining</span>
+              <span class="pp-value">3× / Monat mit Alexander</span>
+            </div>
+            <div class="portal-preview-row">
+              <span class="pp-label">Trainings im März</span>
+              <span class="pp-value">12 Sessions</span>
+            </div>
+          </div>
+
+          <a href="login.html" class="btn btn-primary" style="width:100%;">Zum Mitglieder-Login</a>
+        </div>
+
+        <!-- Admin-Portal -->
+        <div class="portal-card admin">
+          <div class="portal-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Admin-Dashboard</h3>
+          <p>Studio-Verwaltung in Echtzeit — Anmeldungen, Kursauslastung, Gruppenübersicht und Umsatz.</p>
+
+          <ul class="portal-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Neue Anmeldungen & Mitglieder-Übersicht
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Wer ist heute da? Live-Teilnehmer
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Auslastung pro Kurs & Gruppe
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Umsatz, Store-Bestellungen & Statistiken
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Kurse & Privattraining verwalten
+            </li>
+          </ul>
+
+          <!-- Mini-Preview: Auslastung -->
+          <div class="portal-preview">
+            <div class="portal-preview-title">Heutige Kursauslastung</div>
+            <div class="portal-capacity-item">
+              <div class="cap-name">Boxen 09:00 — <span style="color:var(--white);">18/20 Plätze</span></div>
+              <div class="portal-bar">
+                <div class="portal-bar-track"><div class="portal-bar-fill" style="width:90%; background:var(--red);"></div></div>
+                <span class="portal-bar-label">90%</span>
+              </div>
+            </div>
+            <div class="portal-capacity-item">
+              <div class="cap-name">Kick-/Thaiboxen 16:00 — <span style="color:var(--white);">14/20 Plätze</span></div>
+              <div class="portal-bar">
+                <div class="portal-bar-track"><div class="portal-bar-fill" style="width:70%; background:var(--gold);"></div></div>
+                <span class="portal-bar-label">70%</span>
+              </div>
+            </div>
+            <div class="portal-capacity-item">
+              <div class="cap-name">Kinder-Boxen 18:00 — <span style="color:var(--white);">8/15 Plätze</span></div>
+              <div class="portal-bar">
+                <div class="portal-bar-track"><div class="portal-bar-fill" style="width:53%; background:var(--green-light);"></div></div>
+                <span class="portal-bar-label">53%</span>
+              </div>
+            </div>
+            <div class="portal-capacity-item">
+              <div class="cap-name">Zirkeltraining 17:30 — <span style="color:var(--white);">6/12 Plätze</span></div>
+              <div class="portal-bar">
+                <div class="portal-bar-track"><div class="portal-bar-fill" style="width:50%; background:#8a8a8a;"></div></div>
+                <span class="portal-bar-label">50%</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="admin.html" class="btn btn-gold" style="width:100%;">Zum Admin-Dashboard</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -845,5 +988,30 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    // Animated counter for hero stats
+    setTimeout(function() {
+      document.querySelectorAll('.stat-number[data-count]').forEach(function(el) {
+        var target = parseFloat(el.getAttribute('data-count'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        var isDecimal = el.getAttribute('data-decimal') === 'true';
+        var duration = 1600;
+        var start = performance.now();
+
+        function step(now) {
+          var progress = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = eased * target;
+          if (isDecimal) {
+            el.textContent = current.toFixed(1) + suffix;
+          } else {
+            el.textContent = Math.floor(current) + suffix;
+          }
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, 900);
+  </script>
 </body>
 </html>

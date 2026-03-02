@@ -334,3 +334,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/* ===== Animated Counter for Hero Stats ===== */
+{
+  const counters = document.querySelectorAll('.stat-number[data-count]');
+  if (counters.length) {
+    setTimeout(() => {
+      counters.forEach(el => {
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const isDecimal = el.dataset.decimal === 'true';
+        const duration = 1600;
+        const start = performance.now();
+
+        const step = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = eased * target;
+
+          if (isDecimal) {
+            el.textContent = current.toFixed(1) + suffix;
+          } else {
+            el.textContent = Math.floor(current).toLocaleString('de-DE') + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+        requestAnimationFrame(step);
+      });
+    }, 800);
+  }
+}

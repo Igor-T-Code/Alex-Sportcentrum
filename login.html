@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Alex Sportcentrum</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="login-card">
+      <a href="index.html" class="login-logo">
+        <img src="assets/logo.png" alt="Alex Sportcentrum Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span class="logo-text" style="display:none;">ALEX<br>SPORTCENTRUM</span>
+      </a>
+
+      <!-- Tabs -->
+      <div class="tab-nav">
+        <button class="active" data-tab="login">Anmelden</button>
+        <button data-tab="register">Registrieren</button>
+      </div>
+
+      <!-- Login Form -->
+      <div class="tab-content active" id="tab-login">
+        <form id="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="login-email">E-Mail</label>
+            <input type="email" id="login-email" placeholder="deine@email.de">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Passwort</label>
+            <input type="password" id="login-password" placeholder="Passwort eingeben">
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-login">Anmelden</button>
+          <div class="login-links">
+            <a href="#">Passwort vergessen?</a>
+            <a href="index.html">&larr; Zur Startseite</a>
+          </div>
+        </form>
+
+        <div class="login-divider">oder</div>
+
+        <button class="btn-admin-login" id="btn-admin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px; margin-right:6px;"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Als Admin anmelden
+        </button>
+      </div>
+
+      <!-- Register Form -->
+      <div class="tab-content" id="tab-register">
+        <form id="register-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="reg-name">Vollständiger Name</label>
+            <input type="text" id="reg-name" placeholder="Max Mustermann">
+          </div>
+          <div class="form-group">
+            <label for="reg-email">E-Mail</label>
+            <input type="email" id="reg-email" placeholder="deine@email.de">
+          </div>
+          <div class="form-group">
+            <label for="reg-phone">Telefon</label>
+            <input type="tel" id="reg-phone" placeholder="0171 1234567">
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Passwort</label>
+            <input type="password" id="reg-password" placeholder="Min. 8 Zeichen">
+          </div>
+          <div class="form-group">
+            <label for="reg-password2">Passwort bestätigen</label>
+            <input type="password" id="reg-password2" placeholder="Passwort wiederholen">
+          </div>
+          <div class="form-group">
+            <label for="reg-membership">Mitgliedschaft</label>
+            <select id="reg-membership">
+              <option value="">Bitte wählen...</option>
+              <option value="3">3 Monate — 80 €/Mo</option>
+              <option value="12">12 Monate — 70 €/Mo</option>
+              <option value="24">24 Monate — 60 €/Mo</option>
+              <option value="tagespass">Tagespass — 20 €</option>
+              <option value="zehnerkarte">Zehnerkarte — 120 €</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-register">Registrieren</button>
+          <div class="login-links">
+            <span></span>
+            <a href="index.html">&larr; Zur Startseite</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-nav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-nav button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Demo login → profil
+    document.getElementById('btn-login').addEventListener('click', () => {
+      window.location.href = 'profil.html';
+    });
+
+    // Demo register → profil
+    document.getElementById('btn-register').addEventListener('click', () => {
+      window.location.href = 'profil.html';
+    });
+
+    // Admin login → admin
+    document.getElementById('btn-admin').addEventListener('click', () => {
+      window.location.href = 'admin.html';
+    });
+  </script>
+</body>
+</html>
