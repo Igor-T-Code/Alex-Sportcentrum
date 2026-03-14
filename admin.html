@@ -47,6 +47,30 @@
           </a>
         </li>
         <li>
+          <a href="#" data-section="preise">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Preise
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="personaltraining">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+            Personal Training
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="galerie">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            Galerie
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="kontakt">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Kontakt
+          </a>
+        </li>
+        <li>
           <a href="store.html" data-section="store">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
             Store
@@ -191,11 +215,6 @@
               <div class="course-name">Zirkeltraining — Wanik Awdijan</div>
             </div>
             <div class="course-item">
-              <div class="course-dot" style="background:var(--green-light);"></div>
-              <div class="course-time">18:00</div>
-              <div class="course-name">Kinder-Boxen — Alexander Awdijan</div>
-            </div>
-            <div class="course-item">
               <div class="course-dot" style="background:var(--red);"></div>
               <div class="course-time">19:30</div>
               <div class="course-name">Boxen (Fortgeschritten) — Alexander Awdijan</div>
@@ -229,19 +248,311 @@
         </div>
       </div>
 
+      <!-- ===== KURSE VERWALTEN (hidden by default) ===== -->
+      <div class="admin-panel" id="panel-kurse" style="display:none;">
+        <div class="admin-header">
+          <h1>Kurse verwalten</h1>
+          <p>Kurse bearbeiten, Zeiten ändern und auf der Hauptseite aktualisieren.</p>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3>Alle Kurse</h3>
+            <button class="btn btn-small" onclick="adminAddKurs()">+ Neuer Kurs</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="data-table" id="kurse-table">
+              <thead>
+                <tr>
+                  <th>Farbe</th>
+                  <th>Name</th>
+                  <th>Trainer</th>
+                  <th>Zeiten</th>
+                  <th>Beschreibung</th>
+                  <th>Aktionen</th>
+                </tr>
+              </thead>
+              <tbody id="kurse-tbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:16px; display:flex; gap:12px;">
+            <button class="btn btn-primary" onclick="adminSaveKurse()">Speichern & Veröffentlichen</button>
+            <button class="btn btn-outline-dark" onclick="adminResetKurse()">Zurücksetzen</button>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3>Wochenübersicht</h3>
+          </div>
+          <div class="admin-week-grid" id="admin-week-grid"></div>
+        </div>
+      </div>
+
+      <!-- ===== PERSONAL TRAINING VERWALTEN (hidden by default) ===== -->
+      <div class="admin-panel" id="panel-personaltraining" style="display:none;">
+        <div class="admin-header">
+          <h1>Personal Training</h1>
+          <p>Buchungen verwalten und verfügbare Zeitslots konfigurieren.</p>
+        </div>
+
+        <div class="admin-section">
+          <div class="pt-admin-tabs">
+            <button class="pt-admin-tab active" data-pt-tab="buchungen">Buchungen</button>
+            <button class="pt-admin-tab" data-pt-tab="slots">Slots verwalten</button>
+          </div>
+
+          <!-- Buchungen Tab -->
+          <div class="pt-admin-content active" id="pt-tab-buchungen">
+            <div class="admin-section-header">
+              <h3>Alle Buchungen</h3>
+              <button class="btn btn-small" onclick="ptClearOldBookings()">Vergangene löschen</button>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="data-table" id="pt-buchungen-table">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Uhrzeit</th>
+                    <th>Datum</th>
+                    <th>Name</th>
+                    <th>Disziplin</th>
+                    <th>Preis</th>
+                    <th>Telefon</th>
+                    <th>Wünsche</th>
+                    <th>Status</th>
+                    <th>Aktionen</th>
+                  </tr>
+                </thead>
+                <tbody id="pt-buchungen-tbody"></tbody>
+              </table>
+            </div>
+            <p id="pt-no-buchungen" style="color:var(--gray); text-align:center; padding:24px; display:none;">Keine Buchungen vorhanden.</p>
+          </div>
+
+          <!-- Slots Tab -->
+          <div class="pt-admin-content" id="pt-tab-slots">
+            <div class="admin-section-header" style="margin-bottom:16px;">
+              <h3>Verfügbare Zeitslots</h3>
+            </div>
+            <p style="font-size:0.85rem; color:var(--gray); margin-bottom:16px;">Ein Slot pro Zeile (z.B. 09:00). Änderungen werden sofort auf der Buchungsseite sichtbar.</p>
+            <div class="pt-slots-config" id="pt-slots-config"></div>
+            <div style="margin-top:16px; display:flex; gap:12px;">
+              <button class="btn btn-primary" onclick="ptSaveSlots()">Slots speichern</button>
+              <button class="btn btn-outline-dark" onclick="ptResetSlots()">Zurücksetzen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PREISE VERWALTEN (hidden by default) ===== -->
+      <div class="admin-panel" id="panel-preise" style="display:none;">
+        <div class="admin-header">
+          <h1>Preise verwalten</h1>
+          <p>Preisoptionen bearbeiten und auf der Hauptseite aktualisieren.</p>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3>Alle Preisoptionen</h3>
+            <button class="btn btn-small" onclick="adminAddPreis()">+ Neue Option</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="data-table" id="preise-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Label</th>
+                  <th>Preis</th>
+                  <th>Einheit</th>
+                  <th>Aktionen</th>
+                </tr>
+              </thead>
+              <tbody id="preise-tbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:16px; display:flex; gap:12px;">
+            <button class="btn btn-primary" onclick="adminSavePreise()">Speichern & Veröffentlichen</button>
+            <button class="btn btn-outline-dark" onclick="adminResetPreise()">Zurücksetzen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== GALERIE VERWALTEN (hidden by default) ===== -->
+      <div class="admin-panel" id="panel-galerie" style="display:none;">
+        <div class="admin-header">
+          <h1>Galerie verwalten</h1>
+          <p>Bilder hinzufügen, bearbeiten, umsortieren und löschen. Änderungen werden auf der Galerie-Seite sichtbar.</p>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3>Alle Bilder</h3>
+            <button class="btn btn-small" onclick="galerieAddImage()">+ Bild hinzufügen</button>
+          </div>
+          <div class="galerie-admin-grid" id="galerie-admin-grid"></div>
+          <div style="margin-top:16px; display:flex; gap:12px;">
+            <button class="btn btn-primary" onclick="galerieSave()">Speichern & Veröffentlichen</button>
+            <button class="btn btn-outline-dark" onclick="galerieReset()">Zurücksetzen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== KONTAKT VERWALTEN (hidden by default) ===== -->
+      <div class="admin-panel" id="panel-kontakt" style="display:none;">
+        <div class="admin-header">
+          <h1>Kontakt verwalten</h1>
+          <p>Kontaktdaten, Adresse und Social-Media-Links bearbeiten. Änderungen werden auf der Hauptseite sichtbar.</p>
+        </div>
+
+        <div class="admin-section">
+          <h3>Kontaktdaten</h3>
+          <div class="admin-form-grid">
+            <div class="form-group">
+              <label>Firmenname</label>
+              <input type="text" id="kontakt-adresse-firma" placeholder="Alex Sportcentrum GmbH">
+            </div>
+            <div class="form-group">
+              <label>Straße & Hausnummer</label>
+              <input type="text" id="kontakt-adresse-strasse" placeholder="Kohlenhofstr. 1">
+            </div>
+            <div class="form-group">
+              <label>PLZ & Stadt</label>
+              <input type="text" id="kontakt-adresse-plz" placeholder="90443 Nürnberg">
+            </div>
+            <div class="form-group">
+              <label>Google Maps Link</label>
+              <input type="url" id="kontakt-adresse-maps" placeholder="https://www.google.com/maps/place/...">
+            </div>
+            <div class="form-group">
+              <label>Telefon</label>
+              <input type="text" id="kontakt-telefon-input" placeholder="0911 / 242 78 22">
+            </div>
+            <div class="form-group">
+              <label>E-Mail</label>
+              <input type="email" id="kontakt-email-input" placeholder="awdijan@t-online.de">
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <h3>Social Media</h3>
+          <div class="admin-form-grid">
+            <div class="form-group">
+              <label>Instagram URL</label>
+              <input type="url" id="kontakt-instagram" placeholder="https://instagram.com/alexsportcentrum">
+            </div>
+            <div class="form-group">
+              <label>Facebook URL</label>
+              <input type="url" id="kontakt-facebook" placeholder="https://facebook.com/alexsportcentrum">
+            </div>
+            <div class="form-group">
+              <label>YouTube URL</label>
+              <input type="url" id="kontakt-youtube" placeholder="https://youtube.com/@alexsportcentrum">
+            </div>
+            <div class="form-group">
+              <label>TikTok URL</label>
+              <input type="url" id="kontakt-tiktok" placeholder="https://tiktok.com/@alexsportcentrum">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <button class="btn btn-primary" onclick="kontaktSave()">Speichern & Veröffentlichen</button>
+          <button class="btn btn-outline-dark" onclick="kontaktReset()">Zurücksetzen</button>
+        </div>
+      </div>
+
     </main>
   </div>
 
   <script>
-    // Sidebar nav highlight
+    // === Default Data ===
+    const FARB_PALETTE = [
+      { value: '#e63946', label: 'Rot' },
+      { value: '#d4a843', label: 'Gold' },
+      { value: '#5b8fb9', label: 'Blau' },
+      { value: '#8a8a8a', label: 'Grau' },
+      { value: '#b07aab', label: 'Lila' },
+      { value: '#40916c', label: 'Grün' },
+      { value: '#2d6a4f', label: 'Dunkelgrün' },
+      { value: '#e07b39', label: 'Orange' },
+      { value: '#3a86a8', label: 'Petrol' },
+      { value: '#c1121f', label: 'Dunkelrot' }
+    ];
+
+    const DEFAULT_KURSE = [
+      { id: 'boxen', name: 'Boxen', trainer: 'Alexander Awdijan', zeiten: 'Mo 18:30, Mi 18:30, Di 18:30 (Fortg.), Sa 16:00', beschreibung: 'Technik, Pratzen & Sparring', farbe: '#e63946' },
+      { id: 'kick', name: 'Kick- & Thaiboxen', trainer: 'Wanik Awdijan', zeiten: 'Mo 20:00, Mi 20:00, Fr 18:30', beschreibung: 'Schlag- & Tritttechnik', farbe: '#d4a843' },
+      { id: 'fitness', name: 'Fitness-Boxen', trainer: 'Wanik Awdijan', zeiten: 'Di 20:00, Do 20:00, Fr 20:00', beschreibung: 'Ausdauer & Kraft', farbe: '#5b8fb9' },
+      { id: 'zirkel', name: 'Zirkeltraining', trainer: 'Wanik Awdijan', zeiten: 'Di 18:30, Do 18:30', beschreibung: 'Ganzkörper-Workout im Zirkel', farbe: '#8a8a8a' },
+      { id: 'pilates', name: 'Faszien & Pilates', trainer: 'Wanik Awdijan', zeiten: 'Do 18:30', beschreibung: 'Mobilität & Regeneration', farbe: '#b07aab' }
+    ];
+
+    const DEFAULT_PREISE = [
+      { id: '1monat', name: '1 Monat', label: 'Flexibel', preis: '110', einheit: '€ / Mo' },
+      { id: '3monate', name: '3 Monate', label: 'Starter', preis: '90', einheit: '€ / Mo' },
+      { id: '6monate', name: '6 Monate', label: 'Halbjahr', preis: '80', einheit: '€ / Mo' },
+      { id: '12monate', name: '12 Monate', label: 'Beliebt', preis: '70', einheit: '€ / Mo' },
+      { id: '24monate', name: '24 Monate', label: 'Bester Preis', preis: '60', einheit: '€ / Mo' }
+    ];
+
+    // === State ===
+    let kurseData = JSON.parse(localStorage.getItem('alex_kurse')) || [...DEFAULT_KURSE];
+    let preiseData = JSON.parse(localStorage.getItem('alex_preise')) || [...DEFAULT_PREISE];
+
+    // === Panel Navigation ===
+    const dashboardContent = document.querySelector('.stat-grid');
+    const dashboardParents = [
+      dashboardContent,
+      document.querySelector('.admin-grid-2'),
+      document.querySelector('.admin-section:last-of-type'),
+      document.querySelector('.admin-header')
+    ].filter(Boolean);
+
+    // Collect all dashboard-level elements (everything before the panels)
+    function getDashboardElements() {
+      const main = document.querySelector('.admin-main');
+      const els = [];
+      for (let child of main.children) {
+        if (child.classList.contains('admin-panel')) break;
+        els.push(child);
+      }
+      return els;
+    }
+
+    function showPanel(section) {
+      const dashEls = getDashboardElements();
+      const panelKurse = document.getElementById('panel-kurse');
+      const panelPreise = document.getElementById('panel-preise');
+      const panelPT = document.getElementById('panel-personaltraining');
+      const panelGalerie = document.getElementById('panel-galerie');
+      const panelKontakt = document.getElementById('panel-kontakt');
+
+      dashEls.forEach(el => el.style.display = section === 'dashboard' ? '' : 'none');
+      panelKurse.style.display = section === 'kurse' ? '' : 'none';
+      panelPreise.style.display = section === 'preise' ? '' : 'none';
+      panelPT.style.display = section === 'personaltraining' ? '' : 'none';
+      panelGalerie.style.display = section === 'galerie' ? '' : 'none';
+      panelKontakt.style.display = section === 'kontakt' ? '' : 'none';
+
+      if (section === 'kurse') { renderKurseTable(); renderWeekGrid(); }
+      if (section === 'preise') renderPreiseTable();
+      if (section === 'personaltraining') { ptRenderBuchungen(); ptRenderSlotsConfig(); }
+      if (section === 'galerie') galerieRender();
+      if (section === 'kontakt') kontaktLoad();
+    }
+
+    // Sidebar nav
     document.querySelectorAll('.admin-nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         if (link.getAttribute('href') === '#') {
           e.preventDefault();
           document.querySelectorAll('.admin-nav a').forEach(l => l.classList.remove('active'));
           link.classList.add('active');
+          const section = link.dataset.section;
+          showPanel(section);
         }
-        // Close sidebar on mobile
         document.getElementById('admin-sidebar').classList.remove('open');
       });
     });
@@ -251,7 +562,6 @@
       document.getElementById('admin-sidebar').classList.toggle('open');
     });
 
-    // Close sidebar when clicking outside on mobile
     document.addEventListener('click', (e) => {
       const sidebar = document.getElementById('admin-sidebar');
       const toggle = document.getElementById('sidebar-toggle');
@@ -259,6 +569,435 @@
         sidebar.classList.remove('open');
       }
     });
+
+    // === Kurse CRUD ===
+    function renderKurseTable() {
+      const tbody = document.getElementById('kurse-tbody');
+      tbody.innerHTML = kurseData.map((k, i) => `
+        <tr>
+          <td>
+            <div class="farb-picker-wrap">
+              <div class="farb-vorschau" style="background:${k.farbe || '#e63946'}" onclick="this.nextElementSibling.classList.toggle('open')"></div>
+              <div class="farb-palette">${FARB_PALETTE.map(f =>
+                `<button class="farb-dot${f.value === (k.farbe || '#e63946') ? ' active' : ''}" style="background:${f.value}" title="${f.label}" onclick="kurseData[${i}].farbe='${f.value}'; renderKurseTable()"></button>`
+              ).join('')}<label class="farb-custom-label"><input type="color" value="${k.farbe || '#e63946'}" onchange="kurseData[${i}].farbe=this.value; renderKurseTable()"></label></div>
+            </div>
+          </td>
+          <td><input type="text" class="admin-input" value="${esc(k.name)}" onchange="kurseData[${i}].name=this.value"></td>
+          <td><input type="text" class="admin-input" value="${esc(k.trainer)}" onchange="kurseData[${i}].trainer=this.value"></td>
+          <td><input type="text" class="admin-input" value="${esc(k.zeiten)}" onchange="kurseData[${i}].zeiten=this.value"></td>
+          <td><input type="text" class="admin-input" value="${esc(k.beschreibung)}" onchange="kurseData[${i}].beschreibung=this.value"></td>
+          <td><button class="btn-icon-delete" onclick="adminDeleteKurs(${i})" title="Löschen">&times;</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function adminAddKurs() {
+      const id = 'kurs-' + Date.now();
+      kurseData.push({ id, name: 'Neuer Kurs', trainer: '', zeiten: '', beschreibung: '', farbe: '#40916c' });
+      renderKurseTable();
+    }
+
+    function adminDeleteKurs(i) {
+      if (confirm('Kurs "' + kurseData[i].name + '" wirklich löschen?')) {
+        kurseData.splice(i, 1);
+        renderKurseTable();
+        renderWeekGrid();
+      }
+    }
+
+    function adminSaveKurse() {
+      localStorage.setItem('alex_kurse', JSON.stringify(kurseData));
+      renderWeekGrid();
+      showToast('Kurse gespeichert!');
+    }
+
+    function adminResetKurse() {
+      if (confirm('Alle Änderungen verwerfen und auf Standard zurücksetzen?')) {
+        kurseData = [...DEFAULT_KURSE];
+        localStorage.removeItem('alex_kurse');
+        renderKurseTable();
+        renderWeekGrid();
+        showToast('Kurse zurückgesetzt.');
+      }
+    }
+
+    // === Wochenübersicht ===
+    function renderWeekGrid() {
+      const grid = document.getElementById('admin-week-grid');
+      const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+      const dayMap = { 'Mo': [], 'Di': [], 'Mi': [], 'Do': [], 'Fr': [], 'Sa': [] };
+
+      kurseData.forEach(k => {
+        const parts = k.zeiten.split(',').map(s => s.trim());
+        parts.forEach(part => {
+          const match = part.match(/^(Mo|Di|Mi|Do|Fr|Sa)\s+(\d{1,2}:\d{2})/);
+          if (match) {
+            dayMap[match[1]].push({ time: match[2], name: k.name, trainer: k.trainer, farbe: k.farbe || '#e63946' });
+          }
+        });
+      });
+
+      grid.innerHTML = days.map(day => {
+        const slots = dayMap[day].sort((a, b) => a.time.localeCompare(b.time));
+        return `<div class="admin-week-day">
+          <div class="admin-week-day-name">${day}</div>
+          ${slots.length ? slots.map(s => `<div class="admin-week-slot" style="border-left:3px solid ${s.farbe};"><span class="aws-time">${s.time}</span><span class="aws-name">${s.name}</span><span class="aws-trainer">${s.trainer}</span></div>`).join('') : '<div class="admin-week-empty">—</div>'}
+        </div>`;
+      }).join('');
+    }
+
+    // === Preise CRUD ===
+    function renderPreiseTable() {
+      const tbody = document.getElementById('preise-tbody');
+      tbody.innerHTML = preiseData.map((p, i) => `
+        <tr>
+          <td><input type="text" class="admin-input" value="${esc(p.name)}" onchange="preiseData[${i}].name=this.value"></td>
+          <td><input type="text" class="admin-input" value="${esc(p.label)}" onchange="preiseData[${i}].label=this.value"></td>
+          <td><input type="text" class="admin-input admin-input-sm" value="${esc(p.preis)}" onchange="preiseData[${i}].preis=this.value"></td>
+          <td><input type="text" class="admin-input" value="${esc(p.einheit)}" onchange="preiseData[${i}].einheit=this.value"></td>
+          <td><button class="btn-icon-delete" onclick="adminDeletePreis(${i})" title="Löschen">&times;</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function adminAddPreis() {
+      const id = 'preis-' + Date.now();
+      preiseData.push({ id, name: 'Neue Option', label: '', preis: '0', einheit: '€ / Mo' });
+      renderPreiseTable();
+    }
+
+    function adminDeletePreis(i) {
+      if (confirm('Preisoption "' + preiseData[i].name + '" wirklich löschen?')) {
+        preiseData.splice(i, 1);
+        renderPreiseTable();
+      }
+    }
+
+    function adminSavePreise() {
+      localStorage.setItem('alex_preise', JSON.stringify(preiseData));
+      showToast('Preise gespeichert!');
+    }
+
+    function adminResetPreise() {
+      if (confirm('Alle Änderungen verwerfen und auf Standard zurücksetzen?')) {
+        preiseData = [...DEFAULT_PREISE];
+        localStorage.removeItem('alex_preise');
+        renderPreiseTable();
+        showToast('Preise zurückgesetzt.');
+      }
+    }
+
+    // Close color palettes on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.farb-picker-wrap')) {
+        document.querySelectorAll('.farb-palette.open').forEach(p => p.classList.remove('open'));
+      }
+    });
+
+    // === Helpers ===
+    function esc(str) {
+      return String(str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    }
+
+    function showToast(msg) {
+      let toast = document.getElementById('admin-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'admin-toast';
+        toast.className = 'admin-toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // === Personal Training Admin ===
+    const PT_DEFAULT_SLOTS = {
+      'Mo': ['09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00','20:00'],
+      'Di': ['09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00','20:00'],
+      'Mi': ['09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00','20:00'],
+      'Do': ['09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00','20:00'],
+      'Fr': ['09:00','10:00','11:00','12:00','16:00','17:00','18:00','19:00','20:00'],
+      'Sa': ['10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00']
+    };
+
+    const DAY_LABELS = { 'Mo':'Montag','Di':'Dienstag','Mi':'Mittwoch','Do':'Donnerstag','Fr':'Freitag','Sa':'Samstag' };
+
+    function ptGetBuchungen() {
+      try { return JSON.parse(localStorage.getItem('alex_pt_buchungen') || '[]'); } catch(e) { return []; }
+    }
+
+    function ptGetSlots() {
+      try {
+        const s = localStorage.getItem('alex_pt_slots');
+        return s ? JSON.parse(s) : PT_DEFAULT_SLOTS;
+      } catch(e) { return PT_DEFAULT_SLOTS; }
+    }
+
+    // Tab switching
+    document.querySelectorAll('.pt-admin-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.pt-admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.pt-admin-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('pt-tab-' + tab.dataset.ptTab).classList.add('active');
+      });
+    });
+
+    function ptRenderBuchungen() {
+      const buchungen = ptGetBuchungen();
+      const tbody = document.getElementById('pt-buchungen-tbody');
+      const noMsg = document.getElementById('pt-no-buchungen');
+      const table = document.getElementById('pt-buchungen-table');
+
+      if (!buchungen.length) {
+        tbody.innerHTML = '';
+        table.style.display = 'none';
+        noMsg.style.display = '';
+        return;
+      }
+
+      table.style.display = '';
+      noMsg.style.display = 'none';
+
+      // Sort by date, then time
+      buchungen.sort((a, b) => (a.datum + a.zeit).localeCompare(b.datum + b.zeit));
+
+      tbody.innerHTML = buchungen.map((b, i) => {
+        const dateParts = b.datum.split('-');
+        const displayDate = dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0];
+        const statusClass = b.status === 'bestätigt' ? 'aktiv' : 'auslaufend';
+        const statusLabel = b.status === 'bestätigt' ? 'Bestätigt' : 'Gebucht';
+        return `<tr>
+          <td>${DAY_LABELS[b.tag] || b.tag}</td>
+          <td>${b.zeit}</td>
+          <td>${displayDate}</td>
+          <td>${esc(b.name || '—')}</td>
+          <td>${esc(b.disziplin || '—')}</td>
+          <td>${b.preis ? b.preis + ' €' : '—'} <span style="font-size:0.7rem;color:var(--gray);">${b.mitglied ? 'Mitglied' : 'Nicht-Mitglied'}</span></td>
+          <td>${b.telefon ? '<a href="tel:' + esc(b.telefon) + '" style="color:var(--red);">' + esc(b.telefon) + '</a>' : '—'}</td>
+          <td style="max-width:180px; font-size:0.8rem; color:var(--light-gray);">${esc(b.wuensche || '—')}</td>
+          <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
+          <td>
+            ${b.status !== 'bestätigt' ? `<button class="btn btn-small" style="padding:4px 12px; font-size:0.75rem; margin-right:4px;" onclick="ptConfirmBooking(${i})">Bestätigen</button>` : ''}
+            <button class="btn-icon-delete" onclick="ptDeleteBooking(${i})" title="Löschen">&times;</button>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function ptConfirmBooking(i) {
+      const buchungen = ptGetBuchungen();
+      if (buchungen[i]) {
+        buchungen[i].status = 'bestätigt';
+        localStorage.setItem('alex_pt_buchungen', JSON.stringify(buchungen));
+        ptRenderBuchungen();
+        showToast('Buchung bestätigt!');
+      }
+    }
+
+    function ptDeleteBooking(i) {
+      const buchungen = ptGetBuchungen();
+      if (buchungen[i] && confirm('Buchung ' + (DAY_LABELS[buchungen[i].tag] || buchungen[i].tag) + ' ' + buchungen[i].zeit + ' wirklich löschen?')) {
+        buchungen.splice(i, 1);
+        localStorage.setItem('alex_pt_buchungen', JSON.stringify(buchungen));
+        ptRenderBuchungen();
+        showToast('Buchung gelöscht.');
+      }
+    }
+
+    function ptClearOldBookings() {
+      const buchungen = ptGetBuchungen();
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const todayStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+      const filtered = buchungen.filter(b => b.datum >= todayStr);
+      if (filtered.length === buchungen.length) {
+        showToast('Keine vergangenen Buchungen.');
+        return;
+      }
+      if (confirm((buchungen.length - filtered.length) + ' vergangene Buchung(en) löschen?')) {
+        localStorage.setItem('alex_pt_buchungen', JSON.stringify(filtered));
+        ptRenderBuchungen();
+        showToast('Vergangene Buchungen gelöscht.');
+      }
+    }
+
+    function ptRenderSlotsConfig() {
+      const slots = ptGetSlots();
+      const container = document.getElementById('pt-slots-config');
+      const days = ['Mo','Di','Mi','Do','Fr','Sa'];
+
+      container.innerHTML = days.map(day => {
+        const daySlots = (slots[day] || []).join('\n');
+        return `<div class="pt-slots-day">
+          <h4>${day}</h4>
+          <textarea id="pt-slots-${day}">${daySlots}</textarea>
+        </div>`;
+      }).join('');
+    }
+
+    function ptSaveSlots() {
+      const days = ['Mo','Di','Mi','Do','Fr','Sa'];
+      const slots = {};
+      days.forEach(day => {
+        const textarea = document.getElementById('pt-slots-' + day);
+        slots[day] = textarea.value.split('\n').map(s => s.trim()).filter(s => /^\d{1,2}:\d{2}$/.test(s));
+      });
+      localStorage.setItem('alex_pt_slots', JSON.stringify(slots));
+      showToast('Slots gespeichert!');
+    }
+
+    function ptResetSlots() {
+      if (confirm('Slots auf Standard zurücksetzen?')) {
+        localStorage.removeItem('alex_pt_slots');
+        ptRenderSlotsConfig();
+        showToast('Slots zurückgesetzt.');
+      }
+    }
+
+    // === Galerie Verwaltung ===
+    const DEFAULT_GALERIE = [
+      { id: 'g1', src: 'assets/gym/gallery-alexander.jpg', caption: 'Alexander Awdijan am Sandsack — GBU-Weltmeister in Aktion', label: 'Alexander am Sandsack', wide: true },
+      { id: 'g2', src: 'assets/gym/gallery-gruppentraining.jpg', caption: 'Gruppentraining — volle Halle, volle Energie', label: 'Gruppentraining', wide: false },
+      { id: 'g3', src: 'assets/gym/gallery-sparring.jpg', caption: 'Kick- & Thaiboxen Sparring', label: 'Sparring', wide: true },
+      { id: 'g4', src: 'assets/gym/gallery-kinder.jpg', caption: 'Kinder-Boxen — Disziplin und Spaß', label: 'Kinder-Boxen', wide: false },
+      { id: 'g5', src: 'assets/gym/gallery-fitness.jpg', caption: 'Fitness-Training — Ganzkörper-Workout', label: 'Fitness-Training', wide: false },
+      { id: 'g6', src: 'assets/gym/gallery-handschuhe.jpg', caption: 'Equipment — Qualität von Adidas', label: 'Equipment', wide: false },
+      { id: 'g7', src: 'assets/gym/gallery-studio.jpg', caption: '2000m² Studio — Kraft- und Fitnessbereich', label: 'Unser Studio', wide: false }
+    ];
+
+    let galerieData = JSON.parse(localStorage.getItem('alex_galerie')) || [...DEFAULT_GALERIE];
+
+    function galerieRender() {
+      const grid = document.getElementById('galerie-admin-grid');
+      if (!galerieData.length) {
+        grid.innerHTML = '<p style="color:var(--gray); text-align:center; padding:24px;">Keine Bilder vorhanden.</p>';
+        return;
+      }
+      grid.innerHTML = galerieData.map((img, i) => `
+        <div class="galerie-admin-card">
+          <div class="galerie-admin-preview">
+            <img src="${esc(img.src)}" alt="${esc(img.label)}" onerror="this.style.display='none'">
+          </div>
+          <div class="galerie-admin-fields">
+            <label>Bild-URL / Pfad</label>
+            <input type="text" class="admin-input" value="${esc(img.src)}" onchange="galerieData[${i}].src=this.value; galerieRender()">
+            <label>Titel (Overlay)</label>
+            <input type="text" class="admin-input" value="${esc(img.label)}" onchange="galerieData[${i}].label=this.value">
+            <label>Beschreibung (Lightbox)</label>
+            <input type="text" class="admin-input" value="${esc(img.caption)}" onchange="galerieData[${i}].caption=this.value">
+            <label class="galerie-admin-checkbox">
+              <input type="checkbox" ${img.wide ? 'checked' : ''} onchange="galerieData[${i}].wide=this.checked">
+              Breites Bild (2 Spalten)
+            </label>
+          </div>
+          <div class="galerie-admin-actions">
+            ${i > 0 ? `<button class="galerie-move-btn" onclick="galerieMove(${i},-1)" title="Nach oben">&uarr;</button>` : '<span></span>'}
+            ${i < galerieData.length - 1 ? `<button class="galerie-move-btn" onclick="galerieMove(${i},1)" title="Nach unten">&darr;</button>` : '<span></span>'}
+            <button class="btn-icon-delete" onclick="galerieDelete(${i})" title="Löschen">&times;</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function galerieAddImage() {
+      galerieData.push({
+        id: 'g-' + Date.now(),
+        src: 'assets/gym/',
+        caption: '',
+        label: 'Neues Bild',
+        wide: false
+      });
+      galerieRender();
+      // Scroll to bottom
+      const grid = document.getElementById('galerie-admin-grid');
+      grid.lastElementChild.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function galerieDelete(i) {
+      if (confirm('Bild "' + galerieData[i].label + '" wirklich löschen?')) {
+        galerieData.splice(i, 1);
+        galerieRender();
+      }
+    }
+
+    function galerieMove(i, dir) {
+      const j = i + dir;
+      if (j < 0 || j >= galerieData.length) return;
+      [galerieData[i], galerieData[j]] = [galerieData[j], galerieData[i]];
+      galerieRender();
+    }
+
+    function galerieSave() {
+      localStorage.setItem('alex_galerie', JSON.stringify(galerieData));
+      showToast('Galerie gespeichert!');
+    }
+
+    function galerieReset() {
+      if (confirm('Galerie auf Standard zurücksetzen?')) {
+        galerieData = [...DEFAULT_GALERIE];
+        localStorage.removeItem('alex_galerie');
+        galerieRender();
+        showToast('Galerie zurückgesetzt.');
+      }
+    }
+
+    // ===== KONTAKT ADMIN =====
+    const DEFAULT_KONTAKT = {
+      adresse_firma: 'Alex Sportcentrum GmbH',
+      adresse_strasse: 'Kohlenhofstr. 1',
+      adresse_plz: '90443 Nürnberg',
+      adresse_maps: 'https://www.google.com/maps/place/Alex+Sportcentrum+GmbH/@49.4434333,11.0677513,17z',
+      telefon: '0911 / 242 78 22',
+      email: 'awdijan@t-online.de',
+      instagram: 'https://instagram.com/alexsportcentrum',
+      facebook: 'https://facebook.com/alexsportcentrum',
+      youtube: 'https://youtube.com/@alexsportcentrum',
+      tiktok: 'https://tiktok.com/@alexsportcentrum'
+    };
+
+    function kontaktLoad() {
+      var data = localStorage.getItem('alex_kontakt');
+      var k = data ? JSON.parse(data) : { ...DEFAULT_KONTAKT };
+      document.getElementById('kontakt-adresse-firma').value = k.adresse_firma || '';
+      document.getElementById('kontakt-adresse-strasse').value = k.adresse_strasse || '';
+      document.getElementById('kontakt-adresse-plz').value = k.adresse_plz || '';
+      document.getElementById('kontakt-adresse-maps').value = k.adresse_maps || '';
+      document.getElementById('kontakt-telefon-input').value = k.telefon || '';
+      document.getElementById('kontakt-email-input').value = k.email || '';
+      document.getElementById('kontakt-instagram').value = k.instagram || '';
+      document.getElementById('kontakt-facebook').value = k.facebook || '';
+      document.getElementById('kontakt-youtube').value = k.youtube || '';
+      document.getElementById('kontakt-tiktok').value = k.tiktok || '';
+    }
+
+    function kontaktSave() {
+      var k = {
+        adresse_firma: document.getElementById('kontakt-adresse-firma').value.trim(),
+        adresse_strasse: document.getElementById('kontakt-adresse-strasse').value.trim(),
+        adresse_plz: document.getElementById('kontakt-adresse-plz').value.trim(),
+        adresse_maps: document.getElementById('kontakt-adresse-maps').value.trim(),
+        telefon: document.getElementById('kontakt-telefon-input').value.trim(),
+        email: document.getElementById('kontakt-email-input').value.trim(),
+        instagram: document.getElementById('kontakt-instagram').value.trim(),
+        facebook: document.getElementById('kontakt-facebook').value.trim(),
+        youtube: document.getElementById('kontakt-youtube').value.trim(),
+        tiktok: document.getElementById('kontakt-tiktok').value.trim()
+      };
+      localStorage.setItem('alex_kontakt', JSON.stringify(k));
+      showToast('Kontaktdaten gespeichert!');
+    }
+
+    function kontaktReset() {
+      if (confirm('Kontaktdaten auf Standard zurücksetzen?')) {
+        localStorage.removeItem('alex_kontakt');
+        kontaktLoad();
+        showToast('Kontaktdaten zurückgesetzt.');
+      }
+    }
   </script>
 </body>
 </html>

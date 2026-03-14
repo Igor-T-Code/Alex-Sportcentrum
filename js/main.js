@@ -44,24 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Contact form handling ---
-  const form = document.getElementById('kontakt-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = data.get('name');
-
-      // Replace form with success message
-      form.parentElement.innerHTML = `
-        <div class="form-success">
-          <div style="font-size:3rem;margin-bottom:16px">✅</div>
-          <h3>Danke, ${name}!</h3>
-          <p>Wir melden uns innerhalb von 24 Stunden bei dir.<br>Wir freuen uns auf dein Probetraining!</p>
-        </div>
-      `;
-    });
-  }
 
   // --- Scroll reveal animation ---
   const observerOptions = {
@@ -110,29 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-  // --- Mobile Sticky CTA Bar ---
-  const mobileCta = document.getElementById('mobile-cta');
-  if (mobileCta) {
-    let ctaVisible = false;
-    const heroEl = document.getElementById('hero');
-    const kontaktEl = document.getElementById('kontakt');
-
-    const updateCta = () => {
-      const pastHero = window.scrollY > (heroEl ? heroEl.offsetHeight - 100 : 400);
-      const atKontakt = kontaktEl
-        ? window.scrollY + window.innerHeight > kontaktEl.offsetTop + 100
-        : false;
-      const shouldShow = pastHero && !atKontakt;
-
-      if (shouldShow !== ctaVisible) {
-        ctaVisible = shouldShow;
-        mobileCta.classList.toggle('is-visible', shouldShow);
-      }
-    };
-
-    window.addEventListener('scroll', updateCta, { passive: true });
-    updateCta();
-  }
 
   // --- Discipline Modal System ---
   const DISCIPLINES = {
@@ -182,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       color: '#8a8a8a',
       bg: 'rgba(138, 138, 138, 0.15)',
       desc: 'Funktionelles Ganzkörpertraining im Zirkel-Format. Stationen für Kraft, Ausdauer, Schnelligkeit und Koordination — abwechslungsreich und effektiv.',
-      trainer: 'Fitness-Trainerin',
+      trainer: 'Wanik Awdijan',
       times: [
         ['Dienstag', '18:30 – 19:30'],
         ['Donnerstag', '18:30 – 19:30']
@@ -194,54 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
       color: '#b07aab',
       bg: 'rgba(176, 122, 171, 0.15)',
       desc: 'Faszientraining und Pilates für Beweglichkeit, Körperhaltung und Regeneration. Idealer Ausgleich zum intensiven Kampfsporttraining.',
-      trainer: 'Fitness-Trainerin',
+      trainer: 'Wanik Awdijan',
       times: [
         ['Donnerstag', '18:30 – 19:30']
-      ]
-    },
-    'kinder-boxen': {
-      title: 'Kinder-Boxen',
-      icon: '#icon-kinder',
-      color: 'var(--green-light)',
-      bg: 'rgba(64, 145, 108, 0.15)',
-      desc: 'Boxtraining für Kinder: Technik, Disziplin und Selbstbewusstsein. In einer sicheren Umgebung lernen Kinder Respekt, Konzentration und Körperbeherrschung.',
-      trainer: 'Alexander Awdijan',
-      times: [
-        ['Montag', '17:00 – 18:00'],
-        ['Mittwoch', '17:00 – 18:00']
-      ]
-    },
-    'kinder-zirkel': {
-      title: 'Kinder-Zirkel',
-      icon: '#icon-kinder',
-      color: 'var(--green-light)',
-      bg: 'rgba(64, 145, 108, 0.15)',
-      desc: 'Spielerisches Zirkeltraining für Kinder mit Fokus auf Koordination, Beweglichkeit und Spaß an Bewegung.',
-      trainer: 'Alexander Awdijan',
-      times: [
-        ['Dienstag', '17:00 – 18:00']
-      ]
-    },
-    'kinder-sv': {
-      title: 'Kinder-Selbstverteidigung',
-      icon: '#icon-kinder',
-      color: 'var(--green-light)',
-      bg: 'rgba(64, 145, 108, 0.15)',
-      desc: 'Selbstverteidigung für Kinder: Situationserkennung, Reaktion und einfache Techniken für mehr Sicherheit im Alltag.',
-      trainer: 'Alexander Awdijan',
-      times: [
-        ['Donnerstag', '17:00 – 18:00']
-      ]
-    },
-    'kinder-kick': {
-      title: 'Kinder Kick-/Thaiboxen',
-      icon: '#icon-kinder',
-      color: 'var(--green-light)',
-      bg: 'rgba(64, 145, 108, 0.15)',
-      desc: 'Kick- und Thaiboxen für Kinder: Schlag- und Tritttechniken in altersgerechter Form. Fördert Motorik, Ausdauer und Selbstvertrauen.',
-      trainer: 'Alexander Awdijan',
-      times: [
-        ['Freitag', '17:00 – 18:00']
       ]
     }
   };
@@ -256,7 +170,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrollPos = 0;
 
   function openDisciplineModal(key) {
-    const d = DISCIPLINES[key];
+    let d = DISCIPLINES[key];
+
+    // Fallback: try localStorage data for admin-created courses
+    if (!d) {
+      try {
+        const stored = JSON.parse(localStorage.getItem('alex_kurse') || '[]');
+        const k = stored.find(c => c.id === key);
+        if (k) {
+          const farbe = k.farbe || '#e63946';
+          const r = parseInt(farbe.slice(1,3),16), g = parseInt(farbe.slice(3,5),16), b = parseInt(farbe.slice(5,7),16);
+          const dayNames = { 'Mo':'Montag','Di':'Dienstag','Mi':'Mittwoch','Do':'Donnerstag','Fr':'Freitag','Sa':'Samstag' };
+          const times = [];
+          k.zeiten.split(',').forEach(part => {
+            part = part.trim();
+            const m = part.match(/^(Mo|Di|Mi|Do|Fr|Sa)\s+(.*)/);
+            if (m) times.push([dayNames[m[1]] || m[1], m[2]]);
+          });
+          d = { title: k.name, icon: '#icon-boxen', color: farbe, bg: `rgba(${r},${g},${b},0.15)`, desc: k.beschreibung || '', trainer: k.trainer || '', times };
+        }
+      } catch(e) {}
+    }
     if (!d) return;
 
     modalIcon.style.background = d.bg;
@@ -305,15 +239,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close button
   modal.querySelector('.modal-close').addEventListener('click', closeDisciplineModal);
 
-  // Modal CTA — close modal and scroll to contact
+  // Modal CTA — close modal and scroll to prices
   modalCta.addEventListener('click', (e) => {
     e.preventDefault();
     closeDisciplineModal();
     setTimeout(() => {
-      const kontakt = document.querySelector('#kontakt');
-      if (kontakt) {
+      const preise = document.querySelector('#preise');
+      if (preise) {
         const offset = navbar.offsetHeight + 16;
-        const top = kontakt.getBoundingClientRect().top + window.scrollY - offset;
+        const top = preise.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     }, 350);

@@ -55,13 +55,7 @@
             <span>Gruppentraining</span>
           </div>
         </a>
-        <a href="assets/gym/gallery-ring.jpg" class="gallery-item" data-caption="Im Ring — persönliches Training mit Alexander">
-          <img src="assets/gym/gallery-ring.jpg" alt="Training im Boxring" loading="lazy">
-          <div class="gallery-overlay">
-            <span>Ring-Training</span>
-          </div>
-        </a>
-        <a href="assets/gym/gallery-sparring.jpg" class="gallery-item gallery-wide" data-caption="Kick- & Thaiboxen Sparring">
+<a href="assets/gym/gallery-sparring.jpg" class="gallery-item gallery-wide" data-caption="Kick- & Thaiboxen Sparring">
           <img src="assets/gym/gallery-sparring.jpg" alt="Kick- und Thaiboxen Sparring" loading="lazy">
           <div class="gallery-overlay">
             <span>Sparring</span>
@@ -134,6 +128,28 @@
         document.body.style.overflow = '';
       });
     });
+
+    // Load gallery from localStorage if admin has saved changes
+    (function() {
+      var data = localStorage.getItem('alex_galerie');
+      if (!data) return;
+      try {
+        var images = JSON.parse(data);
+        if (!images.length) return;
+        var grid = document.querySelector('.gallery-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        images.forEach(function(img) {
+          var a = document.createElement('a');
+          a.href = img.src;
+          a.className = 'gallery-item' + (img.wide ? ' gallery-wide' : '');
+          a.dataset.caption = img.caption || '';
+          a.innerHTML = '<img src="' + img.src + '" alt="' + (img.label || '') + '" loading="lazy">' +
+            '<div class="gallery-overlay"><span>' + (img.label || '') + '</span></div>';
+          grid.appendChild(a);
+        });
+      } catch(e) {}
+    })();
 
     // Lightbox
     const lightbox = document.getElementById('lightbox');
