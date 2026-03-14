@@ -2369,12 +2369,19 @@ body.modal-open {
   }
 
   .kontakt-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .kontakt-social-link {
-    padding: 8px 14px;
-    font-size: 0.8rem;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
   }
 
   /* ===== Footer Mobile ===== */
@@ -4621,11 +4628,40 @@ body::after {
   .ausstattung-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .ausstattung-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+
+  .ausstattung-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ausstattung-card h3 {
+    font-size: 1rem;
+  }
+
+  .ausstattung-card p {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
   .ausstattung-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ausstattung-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ausstattung-icon svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
